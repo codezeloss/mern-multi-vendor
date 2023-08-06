@@ -3,15 +3,16 @@ const dotenv = require("dotenv");
 const app = require("./app");
 const connectDB = require("./config/dbConnect");
 
+// ** config env
 dotenv.config({ path: "./config.env" });
 
-// connect DB
+// ** connect DB
 connectDB();
 
-// PORT
+// ** PORT
 const PORT = 4000 || process.env.PORT;
 
-// listen to server
+// ** Listen to server
 app.listen(PORT, () => {
   console.log("::: 🚀 Server has started :::".cyan.bold);
 });

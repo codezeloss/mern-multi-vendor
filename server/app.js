@@ -1,4 +1,12 @@
-// MIDDLEWARES
+const express = require("express");
+const app = express();
+const morgan = require("morgan");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const colors = require("colors");
+const { notFound, errorHandler } = require("./middlewares/errorHandler");
+
+// ** MIDDLEWARES
 app.use(
   cors({
     credentials: true,
@@ -9,11 +17,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
 
-// ROUTES
+// ** ROUTES
 app.use("/api/user", authRouter);
 
-
-// ERROR HANDLERS
+// ** ERROR HANDLERS
 app.use(notFound);
 app.use(errorHandler);
 
