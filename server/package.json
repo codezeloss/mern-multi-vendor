@@ -1,0 +1,12 @@
+{
+  "name": "multi-vendor-ecom",
+  "version": "1.0.0",
+  "description": "multi vendor MERN e-commerce project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "codezeloss",
+  "license": "ISC"
+}
