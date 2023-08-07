@@ -2,19 +2,21 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    fontFamily: {
-      Rubik: ["Rubik", "sans-serif"],
-      Roboto: ["Roboto", "sans-serif"],
-      Poppins: ["Poppins", "sans-serif"],
-    },
-    colors: {
-      primary: "#020617",
-      "mine-shaft": "#333333",
-      "bondie-blue": "#00b2b3",
-      "golden-tainoi": "#ffcc66",
-      "neon-carrot": "#ff9933",
-    },
     extend: {
+      fontFamily: {
+        rubik: ["Rubik", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+      },
+      colors: {
+        primary: "#020617",
+        "mine-shaft": "#333333",
+        "bondie-blue": "#00b2b3",
+        "golden-tainoi": "#ffcc66",
+        "neon-carrot": "#ff9933",
+        white: "#ffffff",
+        black: "#000000",
+      },
       screens: {
         "1bp": { max: "1300px" },
         "2bp": { max: "1160px" },
