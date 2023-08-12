@@ -7,7 +7,7 @@ interface Props {
 function ProductImages({ img1, img2, img3 }: Props) {
   return (
     <>
-      <div className="flex flex-col gap-4">
+      <div className="w-[40%] flex flex-col gap-4">
         <img
           className="text-sm w-full h-[320px] object-contain border-[1px] border-gray/[.1] p-8"
           src={img1}

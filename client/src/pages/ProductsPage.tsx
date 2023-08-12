@@ -5,7 +5,7 @@ function ProductsPage() {
     <>
       <main
         className={
-          "flex gap-4 flex-wrap items-center px-6 py-8 max-w-[1500px] mx-auto"
+          "grid grid-cols-5 gap-2 items-center px-6 py-8 max-w-[1500px] mx-auto"
         }
       >
         <Product />

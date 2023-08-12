@@ -4,7 +4,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 function ProductDetails() {
   return (
     <>
-      <div>
+      <div className={"w-[60%]"}>
         <h2 className={"font-bold text-3xl"}>iPhone 14 Pro Max silver Color</h2>
 
         <p className={"mb-3 text-xs text-blue-500"}>Amazon Ltd</p>
@@ -43,18 +43,14 @@ function ProductDetails() {
         <div className={"flex items-center gap-3 my-4"}>
           <button
             type={"button"}
-            className={
-              "bg-black hover:bg-black/50 py-3 px-4 text-white font-medium rounded-md text-sm flex items-center gap-1"
-            }
+            className="bg-black hover:bg-black/50 py-3 px-4 text-white font-medium rounded-md text-sm flex items-center gap-1"
           >
             <p>Add to Cart</p>
             <MdOutlineAddShoppingCart className={"text-base"} />
           </button>
           <button
             type={"button"}
-            className={
-              "bg-black hover:bg-black/50 py-3 px-4 text-white font-medium rounded-md text-sm flex items-center gap-1"
-            }
+            className="bg-black hover:bg-black/50 py-3 px-4 text-white font-medium rounded-md text-sm flex items-center gap-1"
           >
             <p>Add to Wishlist</p>
             <AiOutlineHeart className={"text-base"} />

@@ -4,13 +4,16 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { navItems } from "../../static/data.tsx";
-import { FaShopware } from "react-icons/fa";
 import Logo from "../Logo.tsx";
 
 function Header() {
   return (
     <header className={"block font-poppins"}>
-      <div className={"flex items-center justify-between gap-2 py-6 px-12"}>
+      <div
+        className={
+          "max-w-[1500px] mx-auto flex items-center justify-between gap-2 py-6 px-6"
+        }
+      >
         <Logo />
         <div className={"relative"}>
           <input
@@ -31,55 +34,62 @@ function Header() {
         </button>
       </div>
 
-      <div
-        className={
-          "bg-mine-shaft text-white font-medium flex items-center py-4 px-12 justify-between gap-2"
-        }
-      >
+      <div className={"bg-mine-shaft"}>
         <div
           className={
-            "flex items-center gap-4 text-sm cursor-pointer hover:bg-gray-500 p-2"
+            "max-w-[1500px] mx-auto bg-mine-shaft text-white font-medium flex items-center py-4 px-6 justify-between gap-2"
           }
         >
-          <div className={"flex items-center gap-2"}>
-            <BsList />
-            <p className="hover:font-semibold cursor-pointer">All Categories</p>
+          <div
+            className={
+              "flex items-center gap-4 text-sm cursor-pointer hover:bg-gray-500 p-2"
+            }
+          >
+            <div className={"flex items-center gap-2"}>
+              <BsList />
+              <p className="hover:font-semibold cursor-pointer">
+                All Categories
+              </p>
+            </div>
+            <IoIosArrowDown />
           </div>
-          <IoIosArrowDown />
-        </div>
 
-        <div className={"flex items-center gap-9 text-sm"}>
-          {navItems.map((item) => (
-            <Link to={item.url} className="hover:font-semibold cursor-pointer">
-              {item.title}
+          <div className={"flex items-center gap-9 text-sm"}>
+            {navItems.map((item) => (
+              <Link
+                to={item.url}
+                className="hover:font-semibold cursor-pointer"
+              >
+                {item.title}
+              </Link>
+            ))}
+          </div>
+
+          <div className={"flex items-center gap-4"}>
+            <Link to={"/"} className="relative cursor-pointer">
+              <AiOutlineHeart className={"w-6 h-6"} />
+              <p
+                className={
+                  "absolute text-xs bg-black rounded-full flex items-center justify-center text-white px-1 py-0.5 -top-2 -right-1"
+                }
+              >
+                0
+              </p>
             </Link>
-          ))}
-        </div>
-
-        <div className={"flex items-center gap-4"}>
-          <Link to={"/"} className="relative cursor-pointer">
-            <AiOutlineHeart className={"w-6 h-6"} />
-            <p
-              className={
-                "absolute text-xs bg-black rounded-full flex items-center justify-center text-white px-1 py-0.5 -top-2 -right-1"
-              }
-            >
-              0
-            </p>
-          </Link>
-          <Link to={"/"} className="relative cursor-pointer">
-            <BsCart4 className={"w-6 h-6"} />
-            <p
-              className={
-                "absolute text-xs bg-black rounded-full flex items-center justify-center text-white px-1 py-0.5 -top-2 -right-1"
-              }
-            >
-              0
-            </p>
-          </Link>
-          <Link to={"/"} className="cursor-pointer">
-            <AiOutlineUser className={"w-6 h-6"} />
-          </Link>
+            <Link to={"/"} className="relative cursor-pointer">
+              <BsCart4 className={"w-6 h-6"} />
+              <p
+                className={
+                  "absolute text-xs bg-black rounded-full flex items-center justify-center text-white px-1 py-0.5 -top-2 -right-1"
+                }
+              >
+                0
+              </p>
+            </Link>
+            <Link to={"/"} className="cursor-pointer">
+              <AiOutlineUser className={"w-6 h-6"} />
+            </Link>
+          </div>
         </div>
       </div>
     </header>

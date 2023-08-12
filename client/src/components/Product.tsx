@@ -5,7 +5,7 @@ import { FaRegHeart } from "react-icons/fa";
 
 function Product() {
   return (
-    <div className={"bg-white rounded-md w-[250px] px-4 pb-4 pt-6 mb-6"}>
+    <div className={"bg-white rounded-md w-[275px] px-4 pb-4 pt-6 mb-6"}>
       <div className={"relative"}>
         <img className="w-full object-contain h-44 mb-4" src={iphone} alt="" />
         <div className="absolute flex flex-col items-center text-lg gap-2 right-0 top-0">
