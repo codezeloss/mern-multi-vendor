@@ -1,22 +1,19 @@
-const User = require("../models/UserModel");
+const ErrorHandler = require("../utils/ErrorHandler");
+const catchAsyncErrors = require("./asyncErrorsMiddleware");
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
+const User = require("../models/UserModel");
 
-const authMiddleware = asyncHandler(async (req, res, next) => {
-  let token;
-  if (req?.headers?.authorization?.startsWith("Bearer")) {
-    token = req.headers.authorization.split(" ")[1];
+const isAuthenticated = asyncHandler(async (req, res, next) => {
+  const { token } = req.cookies;
 
-    try {
-      const decoded = await jwt.verify(token, process.env.SECRET_KEY);
-      req.user = await User.findById(decoded.id);
-      next();
-    } catch (error) {
-      throw new Error("Not authorized, token expired. Please LoginPage again.");
-    }
-  } else {
-    throw new Error("There are no token attached to header");
+  if (!token) {
+    return next(new ErrorHandler("Please login to continue!", 401));
   }
+
+  const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+  req.user = await User.findById(decoded.id);
+  next();
 });
 
 const isAdmin = asyncHandler(async (req, res, next) => {
@@ -29,4 +26,4 @@ const isAdmin = asyncHandler(async (req, res, next) => {
   }
 });
 
-module.exports = { authMiddleware, isAdmin };
+module.exports = { isAuthenticated, isAdmin };

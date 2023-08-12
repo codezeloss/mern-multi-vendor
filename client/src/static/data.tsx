@@ -27,7 +27,7 @@ export const brandingData = [
   {
     id: 1,
     title: "Free Shipping",
-    Description: "From all orders over 100$",
+    description: "From all orders over 100$",
     icon: (
       <svg
         width="36"
@@ -77,7 +77,7 @@ export const brandingData = [
   {
     id: 2,
     title: "Daily Surprise Offers",
-    Description: "Save up to 25% off",
+    description: "Save up to 25% off",
     icon: (
       <svg
         width="32"
@@ -105,7 +105,7 @@ export const brandingData = [
   {
     id: 4,
     title: "Affortable Prices",
-    Description: "Get Factory direct price",
+    description: "Get Factory direct price",
     icon: (
       <svg
         width="32"
@@ -152,7 +152,7 @@ export const brandingData = [
   {
     id: 5,
     title: "Secure Payments",
-    Description: "100% protected payments",
+    description: "100% protected payments",
     icon: (
       <svg
         width="32"
@@ -191,28 +191,28 @@ export const brandingData = [
 export const categoriesData = [
   {
     id: 1,
-    title: "Computers and Laptops",
+    title: "Computers & Laptops",
     subTitle: "",
     image_Url:
       "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
   },
   {
     id: 2,
-    title: "cosmetics and body care",
+    title: "cosmetics",
     subTitle: "",
     image_Url:
       "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png",
   },
   {
     id: 3,
-    title: "Accesories",
+    title: "Accessories",
     subTitle: "",
     image_Url:
       "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
   },
   {
     id: 4,
-    title: "Cloths",
+    title: "Clothes",
     subTitle: "",
     image_Url:
       "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
@@ -228,8 +228,7 @@ export const categoriesData = [
     id: 6,
     title: "Gifts",
     subTitle: "",
-    image_Url:
-      "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+    image_Url: "https://cdn-icons-png.flaticon.com/512/5717/5717488.png",
   },
   {
     id: 7,
@@ -239,14 +238,14 @@ export const categoriesData = [
   },
   {
     id: 8,
-    title: "Mobile and Tablets",
+    title: "Mobile & Tablets",
     subTitle: "",
     image_Url:
       "https://st-troy.mncdn.com/mnresize/1500/1500/Content/media/ProductImg/original/mpwp3tua-apple-iphone-14-256gb-mavi-mpwp3tua-637986832343472449.jpg",
   },
   {
     id: 9,
-    title: "Music and Gaming",
+    title: "Gaming",
     subTitle: "",
     image_Url:
       "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
@@ -294,7 +293,7 @@ export const productData = [
   },
   {
     id: 2,
-    category: "Mobile and Tablets",
+    category: "Mobile & Tablets",
     name: "Iphone 14 pro max 256 gb ssd and 8 gb ram silver colour",
     description:
       "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -320,11 +319,10 @@ export const productData = [
     rating: 5,
     total_sell: 80,
     stock: 10,
-    category: "Mobile & Tablets",
   },
   {
     id: 1,
-    category: "Computers and Laptop",
+    category: "Computers & Laptops",
     name: "MacBook pro M2 chipset 256gb ssd 8gb ram space gray color with apple 1 year warranty",
     description:
       "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
@@ -351,7 +349,6 @@ export const productData = [
     rating: 4,
     total_sell: 75,
     stock: 10,
-    category: "Computers & Laptop",
   },
   {
     id: 4,
@@ -413,7 +410,6 @@ export const productData = [
     rating: 5,
     total_sell: 49,
     stock: 10,
-    category: "Shoes",
   },
   {
     id: 1,

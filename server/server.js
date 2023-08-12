@@ -1,18 +1,19 @@
-const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = require("./app");
 const connectDB = require("./config/dbConnect");
 
-// ** config env
-dotenv.config({ path: "./config.env" });
+// !! config env
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config({ path: "./.env" });
+}
 
-// ** connect DB
+// !! connect DB
 connectDB();
 
-// ** PORT
+// !! PORT
 const PORT = 4000 || process.env.PORT;
 
-// ** Listen to server
+// !! Listen to server
 app.listen(PORT, () => {
   console.log("::: 🚀 Server has started :::".cyan.bold);
 });
