@@ -5,12 +5,12 @@ export const navItems = [
     url: "/",
   },
   {
-    title: "Best Selling",
-    url: "/best-selling",
-  },
-  {
     title: "Products",
     url: "/products",
+  },
+  {
+    title: "Best Selling",
+    url: "/best-selling",
   },
   {
     title: "Events",
@@ -587,61 +587,118 @@ export const productData = [
   },
 ];
 
-// ** Footer products Links
-export const footerProductLinks = [
+// ** Marquees Data
+export const marqueesData = [
   {
-    name: "About us",
-    link: "/about",
+    key: 1,
+    name: "Apple",
+    icon: "/src/assets/brand-01.png",
+  },
+  {
+    key: 2,
+    name: "BOSE",
+    icon: "/src/assets/brand-02.png",
+  },
+  {
+    key: 3,
+    name: "Canon",
+    icon: "/src/assets/brand-03.png",
+  },
+  {
+    key: 4,
+    name: "DELL",
+    icon: "/src/assets/brand-04.png",
+  },
+  {
+    key: 5,
+    name: "intel",
+    icon: "/src/assets/brand-05.png",
+  },
+  {
+    key: 6,
+    name: "LG",
+    icon: "/src/assets/brand-06.png",
+  },
+  {
+    key: 7,
+    name: "Samsung",
+    icon: "/src/assets/brand-07.png",
+  },
+  {
+    key: 8,
+    name: "SanDisk",
+    icon: "/src/assets/brand-08.png",
+  },
+];
+
+// ** Footer products Links
+export const footerCompanyLinks = [
+  {
+    name: "About Us",
+    link: "/",
   },
   {
     name: "Careers",
-    link: "/carrers",
+    link: "/",
   },
   {
     name: "Store Locations",
+    link: "/",
   },
   {
     name: "Our Blog",
+    link: "/",
   },
   {
     name: "Reviews",
+    link: "/",
   },
 ];
 
 // ** Footer Company Name
-export const footercompanyLinks = [
+export const footerShopLinks = [
   {
     name: "Game & Video",
+    link: "/",
   },
   {
-    name: "Phone &Tablets",
+    name: "Phone & Tablets",
+    link: "/",
   },
   {
     name: "Computers & Laptop",
+    link: "/",
   },
   {
     name: "Sport Watches",
+    link: "/",
   },
   {
     name: "Events",
+    link: "/",
   },
 ];
 
 // ** Footer Support Links
 export const footerSupportLinks = [
   {
-    name: "FAQ",
-  },
-  {
-    name: "Reviews",
-  },
-  {
-    name: "Contact Us",
-  },
-  {
     name: "Shipping",
+    link: "/",
   },
   {
     name: "Live chat",
+    link: "/",
+  },
+  {
+    name: "Reviews",
+    link: "/",
+  },
+  {
+    name: "Contact Us",
+    link: "/",
+  },
+  {
+    name: "FAQ",
+    link: "/",
   },
 ];

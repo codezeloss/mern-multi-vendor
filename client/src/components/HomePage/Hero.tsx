@@ -11,18 +11,18 @@ function Hero() {
         }}
       >
         <div className="max-w-[600px] absolute top-32 left-[150px]">
-          <h1 className={"text-6xl font-bold mb-6"}>
-            Best Collection For
-            <br /> Home Decoration
+          <h1 className={"text-5xl font-bold mb-6"}>
+            Your Ultimate Tech
+            <br /> Shopping Destination
           </h1>
           <p className={"text-sm mb-4"}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Dive into a world of innovation and possibilities as you explore our
+            vast collection of cutting-edge products. From sleek smartphones to
+            powerful laptops and versatile tablets, we bring you the latest
+            gadgets to elevate your digital lifestyle. Immerse yourself in the
+            realm of technological marvels, where every click opens the door to
+            endless discoveries. With top-notch brands and unbeatable deals,
+            your dream tech setup is just a few clicks away.
           </p>
           <button
             className={

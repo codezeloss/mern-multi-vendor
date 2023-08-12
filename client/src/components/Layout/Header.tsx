@@ -3,12 +3,15 @@ import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
+import { navItems } from "../../static/data.tsx";
+import { FaShopware } from "react-icons/fa";
+import Logo from "../Logo.tsx";
 
 function Header() {
   return (
     <header className={"block font-poppins"}>
       <div className={"flex items-center justify-between gap-2 py-6 px-12"}>
-        <h1 className={"text-3xl font-bold"}>vendoShop</h1>
+        <Logo />
         <div className={"relative"}>
           <input
             className="text-sm w-[600px] border-0 bg-gray-200 pl-4 outline-none py-2 rounded-md"
@@ -44,13 +47,15 @@ function Header() {
           </div>
           <IoIosArrowDown />
         </div>
+
         <div className={"flex items-center gap-9 text-sm"}>
-          <p className="hover:font-semibold cursor-pointer">Home</p>
-          <p className="hover:font-semibold cursor-pointer">Products</p>
-          <p className="hover:font-semibold cursor-pointer">Best Selling</p>
-          <p className="hover:font-semibold cursor-pointer">Events</p>
-          <p className="hover:font-semibold cursor-pointer">FAQ</p>
+          {navItems.map((item) => (
+            <Link to={item.url} className="hover:font-semibold cursor-pointer">
+              {item.title}
+            </Link>
+          ))}
         </div>
+
         <div className={"flex items-center gap-4"}>
           <Link to={"/"} className="relative cursor-pointer">
             <AiOutlineHeart className={"w-6 h-6"} />

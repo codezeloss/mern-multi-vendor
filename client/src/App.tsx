@@ -9,6 +9,11 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./features/user/userSlice.ts";
 import { useEffect } from "react";
 import Layout from "./components/Layout/Layout.tsx";
+import ProductDetailsPage from "./pages/ProductDetailsPage.tsx";
+import ProductsPage from "./pages/ProductsPage.tsx";
+import BestSellingPage from "./pages/BestSellingPage.tsx";
+import EventsPage from "./pages/EventsPage.tsx";
+import FAQPage from "./pages/FAQPage.tsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +31,11 @@ function App() {
           <Route path={"/login"} element={<LoginPage />} />
           <Route path={"/sign-up"} element={<SignUpPage />} />
           <Route path={"/activation/:url"} element={<ActivationPage />} />
+          <Route path={"/product/:id"} element={<ProductDetailsPage />} />
+          <Route path={"/products"} element={<ProductsPage />} />
+          <Route path={"/best-selling"} element={<BestSellingPage />} />
+          <Route path={"/events"} element={<EventsPage />} />
+          <Route path={"/faq"} element={<FAQPage />} />
         </Route>
       </Routes>
 
