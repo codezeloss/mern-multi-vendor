@@ -3,8 +3,9 @@ import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import { navItems } from "../../static/data.tsx";
-import Logo from "../Logo.tsx";
+import { navItems } from "../../../static/data.tsx";
+import Logo from "../../Logo.tsx";
+import Categories from "./Categories.tsx";
 
 function Header() {
   return (
@@ -40,19 +41,7 @@ function Header() {
             "max-w-[1500px] mx-auto bg-mine-shaft text-white font-medium flex items-center py-4 px-6 justify-between gap-2"
           }
         >
-          <div
-            className={
-              "flex items-center gap-4 text-sm cursor-pointer hover:bg-gray-500 p-2"
-            }
-          >
-            <div className={"flex items-center gap-2"}>
-              <BsList />
-              <p className="hover:font-semibold cursor-pointer">
-                All Categories
-              </p>
-            </div>
-            <IoIosArrowDown />
-          </div>
+          <Categories />
 
           <div className={"flex items-center gap-9 text-sm"}>
             {navItems.map((item) => (
