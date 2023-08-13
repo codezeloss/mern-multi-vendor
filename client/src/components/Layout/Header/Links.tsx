@@ -10,7 +10,7 @@ function Links() {
   const [showCartModal, setShowCartModal] = useState(false);
 
   return (
-    <div>
+    <>
       <div className="flex items-center gap-4">
         <div
           className="relative cursor-pointer"
@@ -41,7 +41,7 @@ function Links() {
       {showWishlistModal && (
         <WishlistModal setShowModal={setShowWishlistModal} />
       )}
-    </div>
+    </>
   );
 }
 

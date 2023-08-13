@@ -201,40 +201,42 @@ export const categoriesData = [
     title: "cosmetics",
     subTitle: "",
     image_Url:
-      "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png",
+      "https://media.istockphoto.com/id/184615483/photo/cosmetics-on-white-background.jpg?s=612x612&w=0&k=20&c=B5jwzhVC1YMXmT1W8TeG3EZjTo0hNsY7_J1dxTep7Xg=",
   },
   {
     id: 3,
     title: "Accessories",
     subTitle: "",
     image_Url:
-      "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
+      "https://st4.depositphotos.com/20838724/23309/v/450/depositphotos_233090706-stock-illustration-engagement-wedding-rings-line-icon.jpg",
   },
   {
     id: 4,
     title: "Clothes",
     subTitle: "",
     image_Url:
-      "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
+      "https://media.istockphoto.com/id/874045548/vector/shirt-icon.jpg?s=612x612&w=0&k=20&c=ZJCxsCczemu1XhYRMDCByrYdwotBESuFdC5tkGf1a6g=",
   },
   {
     id: 5,
     title: "Shoes",
     subTitle: "",
     image_Url:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
+      "https://i.pinimg.com/originals/dc/53/50/dc5350243970437d9fff2c8db3a9975b.jpg",
   },
   {
     id: 6,
     title: "Gifts",
     subTitle: "",
-    image_Url: "https://cdn-icons-png.flaticon.com/512/5717/5717488.png",
+    image_Url:
+      "https://static.vecteezy.com/system/resources/previews/002/811/028/original/gift-box-christmas-present-icon-free-vector.jpg",
   },
   {
     id: 7,
     title: "Pet Care",
     subTitle: "",
-    image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
+    image_Url:
+      "https://t4.ftcdn.net/jpg/04/17/87/67/360_F_417876741_pofg19rDWTv6ZmgQ8qTOgVMJ0H3N2uPh.jpg",
   },
   {
     id: 8,
@@ -248,14 +250,14 @@ export const categoriesData = [
     title: "Gaming",
     subTitle: "",
     image_Url:
-      "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+      "https://img.freepik.com/vecteurs-premium/icone-manette-jeu-pour-jouer-jeu-video-arcade-pour-joueur-design-personnalise_185390-205.jpg",
   },
   {
     id: 10,
     title: "Others",
     subTitle: "",
     image_Url:
-      "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+      "https://cdn.vectorstock.com/i/preview-1x/96/53/three-horizontal-dots-menu-black-glyph-ui-icon-vector-43339653.jpg",
   },
 ];
 
