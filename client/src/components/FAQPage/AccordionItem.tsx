@@ -11,17 +11,20 @@ function AccordionItem({ title, description }: Props) {
 
   return (
     <div className={"bg-white w-full flex flex-col p-4 rounded-md"}>
-      <div className={"flex items-center justify-between"}>
-        <p className={""}>{title}</p>
+      <div
+        className={"flex items-center justify-between cursor-pointer"}
+        onClick={() => setOpen(!open)}
+      >
+        <p className={"font-medium"}>{title}</p>
         {open && (
-          <button type={"button"} onClick={() => setOpen(!open)}>
+          <div>
             <IoIosArrowDown />
-          </button>
+          </div>
         )}
         {!open && (
-          <button type={"button"} onClick={() => setOpen(!open)}>
+          <div>
             <IoIosArrowUp />
-          </button>
+          </div>
         )}
       </div>
 
