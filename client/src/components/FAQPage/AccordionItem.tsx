@@ -29,7 +29,7 @@ function AccordionItem({ title, description }: Props) {
       </div>
 
       <div>
-        {!open && <p className={"text-gray-500 text-sm mt-4"}>{description}</p>}
+        {open && <p className={"text-gray-500 text-sm mt-4"}>{description}</p>}
       </div>
     </div>
   );

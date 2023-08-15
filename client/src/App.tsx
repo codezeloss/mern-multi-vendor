@@ -42,6 +42,13 @@ function App() {
           <Route path={"/checkout/payment"} element={<CheckoutPage />} />
           <Route path={"/checkout/success"} element={<CheckoutPage />} />
           <Route path={"/profile"} element={<ProfilePage />} />
+          <Route path={"/profile/orders"} element={<ProfilePage />} />
+          <Route path={"/profile/refunds"} element={<ProfilePage />} />
+          <Route path={"/profile/inbox"} element={<ProfilePage />} />
+          <Route path={"/profile/track-orders"} element={<ProfilePage />} />
+          <Route path={"/profile/payment"} element={<ProfilePage />} />
+          <Route path={"/profile/address"} element={<ProfilePage />} />
+          <Route path={"/profile/logout"} element={<ProfilePage />} />
         </Route>
       </Routes>
       <ToastContainer

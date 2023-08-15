@@ -59,7 +59,7 @@ function TopHeader() {
       </div>
 
       <button
-        className="text-sm py-2 px-4 text-white bg-black font-medium rounded-md flex items-center gap-2"
+        className="text-sm py-2.5 px-6 text-white bg-black font-medium rounded-md flex items-center gap-2"
         type="button"
       >
         <p>Join as a Seller</p>

@@ -15,18 +15,14 @@ function Hero() {
             Your Ultimate Tech
             <br /> Shopping Destination
           </h1>
-          <p className={"text-sm mb-4"}>
+          <p className={"text-base mb-4"}>
             Dive into a world of innovation and possibilities as you explore our
-            vast collection of cutting-edge products. From sleek smartphones to
-            powerful laptops and versatile tablets, we bring you the latest
-            gadgets to elevate your digital lifestyle. Immerse yourself in the
-            realm of technological marvels, where every click opens the door to
-            endless discoveries. With top-notch brands and unbeatable deals,
-            your dream tech setup is just a few clicks away.
+            vast collection of cutting-edge products. We bring you the latest
+            gadgets to elevate your digital lifestyle.
           </p>
           <button
             className={
-              "bg-black text-sm text-white font-medium py-2.5 px-6 rounded-md"
+              "bg-black text-sm text-white font-medium py-2.5 px-11 rounded-md"
             }
             type={"button"}
           >

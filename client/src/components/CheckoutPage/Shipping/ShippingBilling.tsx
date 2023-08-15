@@ -1,4 +1,4 @@
-import CustomInput from "../CustomInput.tsx";
+import CustomInput from "../../CustomInput.tsx";
 
 function ShippingBilling() {
   return (

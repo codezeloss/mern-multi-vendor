@@ -10,7 +10,7 @@ function Categories() {
   return (
     <div className={"relative"}>
       <div
-        className=" flex items-center gap-4 text-sm cursor-pointer hover:bg-gray-500 p-2"
+        className=" flex items-center gap-4 text-sm cursor-pointer p-2"
         onClick={() => setShowCategories(!showCategories)}
       >
         <div className={"flex items-center gap-2"}>
@@ -21,7 +21,11 @@ function Categories() {
       </div>
 
       {showCategories && (
-        <div className={"absolute bg-white w-[230px] top-[40px] z-20 p-6"}>
+        <div
+          className={
+            "absolute bg-white shadow-md rounded-b-md w-[230px] top-[40px] z-20 p-6"
+          }
+        >
           {categoriesData.map((item) => (
             <Link
               to={"/"}
