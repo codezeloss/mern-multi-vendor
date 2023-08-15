@@ -14,6 +14,8 @@ import ProductsPage from "./pages/ProductsPage.tsx";
 import BestSellingPage from "./pages/BestSellingPage.tsx";
 import EventsPage from "./pages/EventsPage.tsx";
 import FAQPage from "./pages/FAQPage.tsx";
+import CheckoutPage from "./pages/CheckoutPage.tsx";
+import ProfilePage from "./pages/ProfilePage.tsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,9 +38,12 @@ function App() {
           <Route path={"/best-selling"} element={<BestSellingPage />} />
           <Route path={"/events"} element={<EventsPage />} />
           <Route path={"/faq"} element={<FAQPage />} />
+          <Route path={"/checkout/shipping"} element={<CheckoutPage />} />
+          <Route path={"/checkout/payment"} element={<CheckoutPage />} />
+          <Route path={"/checkout/success"} element={<CheckoutPage />} />
+          <Route path={"/profile"} element={<ProfilePage />} />
         </Route>
       </Routes>
-
       <ToastContainer
         position="top-center"
         autoClose={2000}

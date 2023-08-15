@@ -9,7 +9,7 @@ function CartModal({ setShowModal }: Props) {
   return (
     <>
       <Modal
-        title={"Wishlist"}
+        title={"Cart"}
         handleClick={() => setShowModal(false)}
         numberOfItems={2}
         products={

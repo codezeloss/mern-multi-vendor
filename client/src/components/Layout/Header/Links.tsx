@@ -18,7 +18,7 @@ function Links() {
         >
           <AiOutlineHeart className="w-6 h-6" />
           <p className="absolute text-xs bg-black rounded-full flex items-center justify-center text-white px-1 py-0.5 -top-2 -right-1">
-            0
+            4
           </p>
         </div>
 
@@ -28,7 +28,7 @@ function Links() {
         >
           <BsCart4 className="w-6 h-6" />
           <p className="absolute text-xs bg-black rounded-full flex items-center justify-center text-white px-1 py-0.5 -top-2 -right-1">
-            0
+            2
           </p>
         </div>
 
