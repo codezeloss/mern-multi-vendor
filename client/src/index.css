@@ -24,11 +24,7 @@ a {
 }
 
 @layer components {
-    input[name="login-email"],
-    input[name="login-password"],
-    input[name="register-fullName"],
-    input[name="register-email"],
-    input[name="register-password"] {
+    input[name="test"] {
         @apply w-full px-4 py-2 border-[1px] rounded bg-gray-100 outline-none mb-1;
     }
 
@@ -37,7 +33,7 @@ a {
     }
 
     .form-btn {
-        @apply bg-blue-600 text-white font-bold p-2.5 text-center w-full mb-8 rounded-md;
+        @apply bg-blue-600 text-white font-bold p-2.5 text-center w-full rounded-md;
     }
 
     .form-label {

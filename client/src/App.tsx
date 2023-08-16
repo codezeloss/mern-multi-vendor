@@ -16,6 +16,7 @@ import EventsPage from "./pages/EventsPage.tsx";
 import FAQPage from "./pages/FAQPage.tsx";
 import CheckoutPage from "./pages/CheckoutPage.tsx";
 import ProfilePage from "./pages/ProfilePage.tsx";
+import SellerRegisterPage from "./pages/SellerRegisterPage.tsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ function App() {
           <Route path={"/profile/address"} element={<ProfilePage />} />
           <Route path={"/profile/logout"} element={<ProfilePage />} />
         </Route>
+        <Route path={"/seller/register"} element={<SellerRegisterPage />} />
       </Routes>
       <ToastContainer
         position="top-center"

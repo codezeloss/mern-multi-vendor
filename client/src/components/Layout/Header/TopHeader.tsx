@@ -4,6 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { Key, useState } from "react";
 import { productData } from "../../../static/data.tsx";
 import SearchProduct from "./SearchProduct.tsx";
+import { Link } from "react-router-dom";
 
 function TopHeader() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -58,13 +59,12 @@ function TopHeader() {
         </div>
       </div>
 
-      <button
-        className="text-sm py-2.5 px-6 text-white bg-black font-medium rounded-md flex items-center gap-2"
-        type="button"
-      >
-        <p>Join as a Seller</p>
-        <BsArrowRight />
-      </button>
+      <Link to={"/seller/register"}>
+        <div className="text-sm py-2.5 px-6 text-white bg-black font-medium rounded-md flex items-center gap-2">
+          <p>Join as a Seller</p>
+          <BsArrowRight />
+        </div>
+      </Link>
     </div>
   );
 }

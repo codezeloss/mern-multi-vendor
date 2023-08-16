@@ -52,12 +52,8 @@ function LoginForm() {
 
   return (
     <>
-      <div
-        className={
-          "h-screen flex items-center justify-center font-poppins bg-gray-100"
-        }
-      >
-        <div className={"flex flex-col items-center justify-center"}>
+      <div className="h-screen flex items-center justify-center font-poppins bg-gray-100">
+        <div className="flex flex-col items-center justify-center">
           <h1 className="form-title">Login to your account</h1>
 
           {!isLoading && (
@@ -145,7 +141,7 @@ function LoginForm() {
                 Submit
               </button>
 
-              <div className={"flex items-center justify-center gap-2"}>
+              <div className={"flex items-center justify-center gap-2 mt-8"}>
                 <p className={"text-sm font-medium text-gray-500"}>
                   Not have any account yet?
                 </p>

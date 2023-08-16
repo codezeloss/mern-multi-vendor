@@ -3,11 +3,12 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import { FiEyeOff } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
-import { PiUserCircleLight } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../features/user/userSlice.ts";
 import { toast } from "react-toastify";
 import Spinner from "../Spinner.tsx";
+import FormCustomInput from "../FormCustomInput.tsx";
+import FormAvatarInput from "../FormAvatarInput.tsx";
 
 interface ValuesProps {
   name: string;
@@ -59,12 +60,8 @@ function SignUpForm() {
 
   return (
     <>
-      <div
-        className={
-          "h-screen flex items-center justify-center font-poppins bg-gray-100"
-        }
-      >
-        <div className={"flex flex-col items-center justify-center"}>
+      <div className="h-screen flex items-center justify-center font-poppins bg-gray-100">
+        <div className="flex flex-col items-center justify-center">
           <h1 className="form-title">Register as a new user</h1>
 
           {!isLoading && (
@@ -74,49 +71,31 @@ function SignUpForm() {
               }
               onSubmit={formik.handleSubmit}
             >
-              <div
-                className={
-                  "flex flex-col items-center gap-2 mb-6 justify-center"
-                }
-              >
-                <div className={"text-7xl"}>
-                  <PiUserCircleLight />
-                </div>
-                <div>
-                  <input
-                    type="file"
-                    name="avatar"
-                    id="file-input"
-                    accept=".jpg,.jpeg,.png"
-                    className={
-                      "text-gray-600 text-sm py-2 px-4 font-semibold border-[1px] rounded-md hover:bg-gray-100"
-                    }
-                    onBlur={formik.handleBlur("avatar")}
-                    onChange={formik.handleChange("avatar")}
-                    value={formik.values.avatar}
-                  />
-                  {formik.touched.avatar && formik.errors.avatar ? (
-                    <div className="error">
-                      <p>{formik.errors.avatar}</p>
-                    </div>
-                  ) : null}
-                </div>
+              <div className="flex flex-col items-center gap-2 mb-6 justify-center">
+                <FormAvatarInput
+                  name={"avatar"}
+                  id={"file-input"}
+                  onBlurHandler={formik.handleBlur("avatar")}
+                  onChangeHandler={formik.handleChange("avatar")}
+                  value={formik.values.avatar}
+                />
+                {formik.touched.avatar && formik.errors.avatar ? (
+                  <div className="error">
+                    <p>{formik.errors.avatar}</p>
+                  </div>
+                ) : null}
               </div>
 
               <div className="flex flex-col mb-4">
-                <label className="form-label" htmlFor="register-fullName">
-                  Full Name
-                </label>
-                <input
-                  className={`${
-                    formik.errors.name ? "border-2 border-red-400" : ""
-                  }`}
-                  type="text"
-                  name="register-fullName"
-                  id="register-fullName"
-                  onBlur={formik.handleBlur("name")}
-                  onChange={formik.handleChange("name")}
+                <FormCustomInput
+                  label={"Full Name"}
+                  type={"text"}
+                  name={"register-fullName"}
+                  id={"register-fullName"}
+                  onBlurHandler={formik.handleBlur("name")}
+                  onChangeHandler={formik.handleChange("name")}
                   value={formik.values.name}
+                  error={!!formik.errors.name && !!formik.touched.name}
                 />
                 {formik.touched.name && formik.errors.name ? (
                   <div className="error">
@@ -126,19 +105,15 @@ function SignUpForm() {
               </div>
 
               <div className="flex flex-col mb-4">
-                <label className="form-label" htmlFor="register-email">
-                  Email address
-                </label>
-                <input
-                  className={`${
-                    formik.errors.email ? "border-2 border-red-400" : ""
-                  }`}
-                  type="email"
-                  name="register-email"
-                  id="register-email"
-                  onBlur={formik.handleBlur("email")}
-                  onChange={formik.handleChange("email")}
+                <FormCustomInput
+                  label={"Email address"}
+                  type={"email"}
+                  name={"register-email"}
+                  id={"register-email"}
+                  onBlurHandler={formik.handleBlur("email")}
+                  onChangeHandler={formik.handleChange("email")}
                   value={formik.values.email}
+                  error={!!formik.touched.email && !!formik.errors.email}
                 />
                 {formik.touched.email && formik.errors.email ? (
                   <div className="error">
@@ -148,26 +123,24 @@ function SignUpForm() {
               </div>
 
               <div className="flex flex-col mb-4">
-                <label className="form-label" htmlFor="register-password">
-                  Password
-                </label>
-                <div className={"relative"}>
+                <div className="relative">
                   <div>
-                    <input
-                      className={`${
-                        formik.errors.password ? "border-2 border-red-400" : ""
-                      }`}
+                    <FormCustomInput
+                      label={"Password"}
                       type={`${!showPassword ? "password" : "text"}`}
-                      name="register-password"
-                      id="register-password"
-                      onBlur={formik.handleBlur("password")}
-                      onChange={formik.handleChange("password")}
+                      name={"register-password"}
+                      id={"register-password"}
+                      onBlurHandler={formik.handleBlur("password")}
+                      onChangeHandler={formik.handleChange("password")}
                       value={formik.values.password}
+                      error={
+                        !!formik.touched.password && !!formik.errors.password
+                      }
                     />
                     <button
                       type={"button"}
                       className={
-                        "absolute right-3 top-3 text-lg cursor-pointer hover:text-gray-500"
+                        "absolute right-3 top-9 text-lg cursor-pointer hover:text-gray-500"
                       }
                       onClick={() => setShowPassword(!showPassword)}
                     >
@@ -186,7 +159,7 @@ function SignUpForm() {
                 Submit
               </button>
 
-              <div className={"flex items-center justify-center gap-2"}>
+              <div className={"flex items-center justify-center gap-2 mt-8"}>
                 <p className={"text-sm font-medium text-gray-500"}>
                   Already have an account?
                 </p>
