@@ -31,7 +31,11 @@ const login = async (userData: any) => {
 
 const user = async () => {
   const response = await axios.get(`${base_url}user/user`, config);
-  console.log(response.data);
+  return response.data;
+};
+
+const logout = async () => {
+  const response = await axios.get(`${base_url}user/logout`, config);
   return response.data;
 };
 
@@ -40,6 +44,7 @@ const userService = {
   activateUser,
   login,
   user,
+  logout,
 };
 
 export default userService;

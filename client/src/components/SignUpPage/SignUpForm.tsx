@@ -60,15 +60,13 @@ function SignUpForm() {
 
   return (
     <>
-      <div className="h-screen flex items-center justify-center font-poppins bg-gray-100">
+      <div className="h-full flex items-center justify-center font-poppins bg-gray-100 py-24">
         <div className="flex flex-col items-center justify-center">
           <h1 className="form-title">Register as a new user</h1>
 
           {!isLoading && (
             <form
-              className={
-                "bg-white px-8 pt-8 pb-14 shadow-md w-[500px] h-auto rounded-md"
-              }
+              className="bg-white px-8 pt-8 pb-11 shadow-md w-[500px] h-auto rounded-md"
               onSubmit={formik.handleSubmit}
             >
               <div className="flex flex-col items-center gap-2 mb-6 justify-center">
@@ -122,44 +120,42 @@ function SignUpForm() {
                 ) : null}
               </div>
 
-              <div className="flex flex-col mb-4">
-                <div className="relative">
-                  <div>
-                    <FormCustomInput
-                      label={"Password"}
-                      type={`${!showPassword ? "password" : "text"}`}
-                      name={"register-password"}
-                      id={"register-password"}
-                      onBlurHandler={formik.handleBlur("password")}
-                      onChangeHandler={formik.handleChange("password")}
-                      value={formik.values.password}
-                      error={
-                        !!formik.touched.password && !!formik.errors.password
-                      }
-                    />
-                    <button
-                      type={"button"}
-                      className={
-                        "absolute right-3 top-9 text-lg cursor-pointer hover:text-gray-500"
-                      }
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      <FiEyeOff />
-                    </button>
-                  </div>
-                  {formik.touched.password && formik.errors.password ? (
-                    <div className="error">
-                      <p>{formik.errors.password}</p>
-                    </div>
-                  ) : null}
+              <div className="relative">
+                <div>
+                  <FormCustomInput
+                    label={"Password"}
+                    type={`${!showPassword ? "password" : "text"}`}
+                    name={"register-password"}
+                    id={"register-password"}
+                    onBlurHandler={formik.handleBlur("password")}
+                    onChangeHandler={formik.handleChange("password")}
+                    value={formik.values.password}
+                    error={
+                      !!formik.touched.password && !!formik.errors.password
+                    }
+                  />
+                  <button
+                    type={"button"}
+                    className={
+                      "absolute right-3 top-9 text-lg cursor-pointer hover:text-gray-500"
+                    }
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    <FiEyeOff />
+                  </button>
                 </div>
+                {formik.touched.password && formik.errors.password ? (
+                  <div className="error">
+                    <p>{formik.errors.password}</p>
+                  </div>
+                ) : null}
               </div>
 
-              <button type="submit" className={"form-btn"}>
+              <button type="submit" className={"form-btn mt-4"}>
                 Submit
               </button>
 
-              <div className={"flex items-center justify-center gap-2 mt-8"}>
+              <div className="flex items-center justify-center gap-2 mt-8">
                 <p className={"text-sm font-medium text-gray-500"}>
                   Already have an account?
                 </p>

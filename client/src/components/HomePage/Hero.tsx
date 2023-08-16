@@ -21,9 +21,7 @@ function Hero() {
             gadgets to elevate your digital lifestyle.
           </p>
           <button
-            className={
-              "bg-black text-sm text-white font-medium py-2.5 px-11 rounded-md"
-            }
+            className="bg-black text-sm text-white font-medium py-2.5 px-11 rounded-md"
             type={"button"}
           >
             <p>Shop Now</p>

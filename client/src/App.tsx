@@ -17,6 +17,7 @@ import FAQPage from "./pages/FAQPage.tsx";
 import CheckoutPage from "./pages/CheckoutPage.tsx";
 import ProfilePage from "./pages/ProfilePage.tsx";
 import SellerRegisterPage from "./pages/SellerRegisterPage.tsx";
+import SellerLoginPage from "./pages/SellerLoginPage.tsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,7 +34,6 @@ function App() {
           <Route path={"/"} element={<HomePage />} />
           <Route path={"/login"} element={<LoginPage />} />
           <Route path={"/sign-up"} element={<SignUpPage />} />
-          <Route path={"/activation/:url"} element={<ActivationPage />} />
           <Route path={"/product/:id"} element={<ProductDetailsPage />} />
           <Route path={"/products"} element={<ProductsPage />} />
           <Route path={"/best-selling"} element={<BestSellingPage />} />
@@ -51,7 +51,9 @@ function App() {
           <Route path={"/profile/address"} element={<ProfilePage />} />
           <Route path={"/profile/logout"} element={<ProfilePage />} />
         </Route>
+        <Route path={"/activation/:url"} element={<ActivationPage />} />
         <Route path={"/seller/register"} element={<SellerRegisterPage />} />
+        <Route path={"/seller/login"} element={<SellerLoginPage />} />
       </Routes>
       <ToastContainer
         position="top-center"

@@ -7,7 +7,7 @@ const sendMail = require("../utils/sendMail");
 const asyncErrorsMiddleware = require("../middlewares/asyncErrorsMiddleware");
 const sendToken = require("../utils/jwtToken");
 
-// ** Activation Token
+// !! Activation Token
 const createActivationToken = (user) => {
   return jwt.sign(user, process.env.JWT_SECRET_KEY, { expiresIn: "5m" });
 };
@@ -67,7 +67,7 @@ const activateUser = asyncHandler(async (req, res, next) => {
       sendToken(user, 201, res);
     }
   } catch (e) {
-    return next(new ErrorHandler(e.message, 400));
+    return next(new ErrorHandler(e.message, 500));
   }
 });
 
@@ -93,7 +93,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
     // if the password is valid
     sendToken(user, 201, res);
   } catch (e) {
-    return next(new ErrorHandler(e.message, 400));
+    return next(new ErrorHandler(e.message, 500));
   }
 });
 
@@ -114,7 +114,25 @@ const getUser = asyncHandler(async (req, res, next) => {
       user,
     });
   } catch (e) {
-    return next(new ErrorHandler(e.message, 400));
+    return next(new ErrorHandler(e.message, 500));
+  }
+});
+
+// !! @desc   User Logout
+// !! @route  POST /logout
+// !! @access Private
+const logoutUser = asyncHandler(async (req, res, next) => {
+  try {
+    res.cookie("token", null, {
+      expires: new Date(Date.now()),
+      httpOnly: true,
+    });
+    res.status(201).json({
+      success: true,
+      message: "Logout Successfully!",
+    });
+  } catch (e) {
+    return next(new ErrorHandler(e.message, 500));
   }
 });
 
@@ -123,4 +141,5 @@ module.exports = {
   activateUser,
   loginUser,
   getUser,
+  logoutUser,
 };

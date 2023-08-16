@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 
 interface Props {
   title: string;
-  handleClick: any;
+  handleCloseClick: any;
+  handleCheckoutClick?: any;
   numberOfItems: number;
   products: any;
 }
 
-function Modal({ title, handleClick, numberOfItems, products }: Props) {
+function Modal({
+  title,
+  handleCloseClick,
+  handleCheckoutClick,
+  numberOfItems,
+  products,
+}: Props) {
   return (
     <>
       <div className="w-full bg-black/50 z-20 absolute left-0 right-0 top-0 h-full">
@@ -19,7 +26,7 @@ function Modal({ title, handleClick, numberOfItems, products }: Props) {
               <p className="font-bold text-black text-xl">Your {title}</p>
               <GrClose
                 className="text-lg cursor-pointer"
-                onClick={handleClick}
+                onClick={handleCloseClick}
               />
             </div>
 
@@ -36,7 +43,7 @@ function Modal({ title, handleClick, numberOfItems, products }: Props) {
               <button
                 type="button"
                 className="w-full text-sm font-bold p-3 text-white bg-red-800 hover:bg-red-600 rounded-md"
-                onClick={handleClick}
+                onClick={handleCheckoutClick}
               >
                 Checkout Now ($1080)
               </button>

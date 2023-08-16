@@ -73,6 +73,19 @@ export const getUser = createAsyncThunk("user/get-user", async (thunkAPI) => {
   }
 });
 
+// !! Logout user
+export const logoutUser = createAsyncThunk(
+  "user/logout-user",
+  async (thunkAPI) => {
+    try {
+      return await userService.logout();
+    } catch (e) {
+      // @ts-ignore
+      return thunkAPI.rejectWithValue(e);
+    }
+  }
+);
+
 export const authSlice = createSlice({
   name: "user",
   initialState,
@@ -82,6 +95,7 @@ export const authSlice = createSlice({
       // ** Register user
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
+        state.isError = false;
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -129,6 +143,7 @@ export const authSlice = createSlice({
         state.user = action.payload.user;
         // @ts-ignore
         state.token = action.payload.token;
+        state.isAuthenticated = true;
         state.message = "success";
       })
       .addCase(loginUser.rejected, (state, action) => {
@@ -152,6 +167,25 @@ export const authSlice = createSlice({
         state.message = "success";
       })
       .addCase(getUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        // @ts-ignore
+        state.message = action.error;
+      })
+      // ** Logout User
+      .addCase(logoutUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(logoutUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.user = null;
+        state.isAuthenticated = false;
+        state.message = action.payload.message;
+      })
+      .addCase(logoutUser.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;

@@ -10,14 +10,14 @@ function WishlistModal({ setShowModal }: Props) {
     <>
       <Modal
         title={"Wishlist"}
-        handleClick={() => setShowModal(false)}
+        handleCloseClick={() => setShowModal(false)}
         numberOfItems={4}
         products={
           <>
-            <ModalProduct />
-            <ModalProduct />
-            <ModalProduct />
-            <ModalProduct />
+            <ModalProduct setShowModal={setShowModal} />
+            <ModalProduct setShowModal={setShowModal} />
+            <ModalProduct setShowModal={setShowModal} />
+            <ModalProduct setShowModal={setShowModal} />
           </>
         }
       />

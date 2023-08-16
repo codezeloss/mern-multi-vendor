@@ -6,6 +6,7 @@ const {
   activateUser,
   loginUser,
   getUser,
+  logoutUser,
 } = require("../controllers/userController");
 const { isAuthenticated } = require("../middlewares/authMiddleware");
 
@@ -13,5 +14,6 @@ router.post("/register", createUser);
 router.post("/activation", activateUser);
 router.post("/login", loginUser);
 router.get("/user", isAuthenticated, getUser);
+router.get("/logout", isAuthenticated, logoutUser);
 
 module.exports = router;

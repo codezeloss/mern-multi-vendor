@@ -4,8 +4,10 @@ import { FiCamera } from "react-icons/fi";
 function Profile() {
   return (
     <>
+      <h2 className="font-semibold text-lg mb-4">Profile</h2>
+
       <div>
-        <div className="relative w-full bg-gray-500 w-40 h-40 rounded-full mx-auto mb-12 border-2 border-black">
+        <div className="relative bg-gray-500 w-40 h-40 rounded-full mx-auto mb-12 border-2 border-black">
           <img src="" alt="" />
           <button
             type="button"

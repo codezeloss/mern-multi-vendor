@@ -3,6 +3,8 @@ import { object, string } from "yup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import FormAvatarInput from "../FormAvatarInput.tsx";
+import { Link } from "react-router-dom";
+import Spinner from "../Spinner.tsx";
 
 // !! Interface
 interface ValuesProps {
@@ -184,7 +186,18 @@ function SellerRegisterForm() {
             <button type="submit" className={"form-btn"}>
               Submit
             </button>
+
+            <div className="flex items-center justify-center gap-2 mt-8">
+              <p className="text-sm font-medium text-gray-500">
+                Already have an account?
+              </p>
+              <Link className="form-link" to={"/seller/login"}>
+                Sign In
+              </Link>
+            </div>
           </form>
+
+          {false && <Spinner />}
         </div>
       </div>
     </>

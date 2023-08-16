@@ -6,13 +6,33 @@ import { HiOutlineInboxIn } from "react-icons/hi";
 import { MdOutlinePayment } from "react-icons/md";
 import { LiaAddressCard } from "react-icons/lia";
 import { BiLogOut } from "react-icons/bi";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../features/user/userSlice.ts";
+import { useEffect } from "react";
 
 function Navigation() {
   const location = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  // ** Get the current path
   const currentPath = location.pathname.split("/")[2];
-  console.log(currentPath);
+
+  // ** RTK - User state
+  const { isAuthenticated } = useSelector((state: any) => state.user);
+
+  // ** Handle User Logout
+  const handleLogout = () => {
+    // @ts-ignore
+    dispatch(logoutUser());
+  };
+
+  useEffect(() => {
+    if (isAuthenticated === false) {
+      navigate("/login");
+    }
+  }, [isAuthenticated]);
 
   return (
     <>
@@ -59,12 +79,14 @@ function Navigation() {
           title={"Address"}
           current={currentPath === "address"}
         />
-        <NavigationLink
-          link={"/profile/logout"}
-          icon={<BiLogOut />}
-          title={"Log out"}
-          current={currentPath === "logout"}
-        />
+        <div onClick={handleLogout}>
+          <NavigationLink
+            link={"/profile"}
+            icon={<BiLogOut />}
+            title={"Log out"}
+            current={currentPath === "logout"}
+          />
+        </div>
       </div>
     </>
   );
