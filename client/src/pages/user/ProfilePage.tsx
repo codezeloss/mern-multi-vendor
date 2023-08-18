@@ -1,12 +1,12 @@
-import Navigation from "../components/ProfilePage/Navigation.tsx";
+import Navigation from "../../components/ProfilePage/Navigation.tsx";
 import { useLocation } from "react-router-dom";
-import Profile from "../components/ProfilePage/Profile.tsx";
-import Orders from "../components/ProfilePage/Orders.tsx";
-import Refunds from "../components/ProfilePage/Refunds.tsx";
-import Inbox from "../components/ProfilePage/Inbox.tsx";
-import TrackOrders from "../components/ProfilePage/TrackOrders.tsx";
-import PaymentMethods from "../components/ProfilePage/PaymentMethods.tsx";
-import Address from "../components/ProfilePage/Address.tsx";
+import Profile from "../../components/ProfilePage/Profile.tsx";
+import Orders from "../../components/ProfilePage/Orders.tsx";
+import Refunds from "../../components/ProfilePage/Refunds.tsx";
+import Inbox from "../../components/ProfilePage/Inbox.tsx";
+import TrackOrders from "../../components/ProfilePage/TrackOrders.tsx";
+import PaymentMethods from "../../components/ProfilePage/PaymentMethods.tsx";
+import Address from "../../components/ProfilePage/Address.tsx";
 
 function ProfilePage() {
   const location = useLocation();

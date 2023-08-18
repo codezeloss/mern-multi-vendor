@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { activateSellerShop } from "../features/seller/sellerSlice.ts";
+import { activateSellerShop } from "../../features/seller/sellerSlice.ts";
 
 function SellerActivationPage() {
   const { url } = useParams();

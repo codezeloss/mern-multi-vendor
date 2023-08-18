@@ -26,10 +26,16 @@ const loginShop = async (userData: any) => {
   return response.data;
 };
 
+const seller = async () => {
+  const response = await axios.get(`${base_url}seller/seller`, config);
+  return response.data;
+};
+
 const sellerService = {
   createShop,
   activateShop,
   loginShop,
+  seller,
 };
 
 export default sellerService;

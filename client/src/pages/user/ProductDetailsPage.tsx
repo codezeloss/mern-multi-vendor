@@ -1,8 +1,8 @@
-import ProductImages from "../components/ProductDetailsPage/ProductImages.tsx";
-import ProductDetails from "../components/ProductDetailsPage/ProductDetails.tsx";
-import iphone from "../assets/iphone.jpg";
-import ProductAccordions from "../components/ProductDetailsPage/ProductAccordions.tsx";
-import FeaturedProducts from "../components/HomePage/FeaturedProducts.tsx";
+import ProductImages from "../../components/ProductDetailsPage/ProductImages.tsx";
+import ProductDetails from "../../components/ProductDetailsPage/ProductDetails.tsx";
+import iphone from "../../assets/iphone.jpg";
+import ProductAccordions from "../../components/ProductDetailsPage/ProductAccordions.tsx";
+import FeaturedProducts from "../../components/HomePage/FeaturedProducts.tsx";
 
 function ProductDetailsPage() {
   return (

@@ -1,4 +1,4 @@
-import LoginForm from "../components/LoginPage/LoginForm.tsx";
+import LoginForm from "../../components/LoginPage/LoginForm.tsx";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";

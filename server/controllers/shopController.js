@@ -126,11 +126,11 @@ const loginSellerShop = asyncHandler(async (req, res, next) => {
 // !! @access Private
 const getSeller = asyncHandler(async (req, res, next) => {
   try {
-    const { _id } = req.seller;
+    const { _id } = req.user;
 
     const seller = await Shop.findById(_id);
     if (!seller) {
-      return next(new ErrorHandler("Shop doesn't exists", 400));
+      return next(new ErrorHandler("Shop doesn't exists!", 400));
     }
 
     res.status(200).json({

@@ -1,7 +1,7 @@
-import Stepper from "../components/CheckoutPage/Stepper.tsx";
+import Stepper from "../../components/CheckoutPage/Stepper.tsx";
 import { useLocation } from "react-router-dom";
-import Shipping from "../components/CheckoutPage/Shipping/Shipping.tsx";
-import Success from "../components/CheckoutPage/Success.tsx";
+import Shipping from "../../components/CheckoutPage/Shipping/Shipping.tsx";
+import Success from "../../components/CheckoutPage/Success.tsx";
 
 function CheckoutPage() {
   const location = useLocation();

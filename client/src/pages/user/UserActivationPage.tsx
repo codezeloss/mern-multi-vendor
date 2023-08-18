@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { activateUserAccount } from "../features/user/userSlice.ts";
+import { activateUserAccount } from "../../features/user/userSlice.ts";
 
 function UserActivationPage() {
   const { url } = useParams();

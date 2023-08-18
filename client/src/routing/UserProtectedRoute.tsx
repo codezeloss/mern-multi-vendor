@@ -5,11 +5,11 @@ interface Props {
   children: any;
 }
 
-const ProtectedRoute = ({ isAuthenticated, children }: Props) => {
+const UserProtectedRoute = ({ isAuthenticated, children }: Props) => {
   if (!isAuthenticated) {
     return <Navigate to={"/login"} replace />;
   }
   return children;
 };
 
-export default ProtectedRoute;
+export default UserProtectedRoute;

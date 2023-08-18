@@ -1,4 +1,4 @@
-import SellerLoginForm from "../components/Seller/SellerLoginForm.tsx";
+import SellerLoginForm from "../../components/Seller/SellerLoginForm.tsx";
 
 function SellerLoginPage() {
   return (

@@ -1,4 +1,4 @@
-import PopularProduct from "../components/HomePage/PopularProduct.tsx";
+import PopularProduct from "../../components/HomePage/PopularProduct.tsx";
 
 function EventsPage() {
   return (

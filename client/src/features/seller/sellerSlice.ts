@@ -61,6 +61,19 @@ export const loginSellerShop = createAsyncThunk(
   }
 );
 
+// !! Get Seller Shop
+export const getSeller = createAsyncThunk(
+  "seller/get-seller",
+  async (thunkAPI) => {
+    try {
+      return await sellerService.seller();
+    } catch (e) {
+      // @ts-ignore
+      return thunkAPI.rejectWithValue(e);
+    }
+  }
+);
+
 export const sellerSlice = createSlice({
   name: "seller",
   initialState,
@@ -124,6 +137,26 @@ export const sellerSlice = createSlice({
         state.message = "success";
       })
       .addCase(loginSellerShop.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        // @ts-ignore
+        state.message = action.error;
+      })
+      // ** Get Seller Shop
+      .addCase(getSeller.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getSeller.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        // @ts-ignore
+        state.seller = action.payload.seller;
+        state.isAuthenticated = true;
+        state.message = "success";
+      })
+      .addCase(getSeller.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;

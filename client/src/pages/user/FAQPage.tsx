@@ -1,4 +1,4 @@
-import Accordions from "../components/FAQPage/Accordions.tsx";
+import Accordions from "../../components/FAQPage/Accordions.tsx";
 
 function FaqPage() {
   return (

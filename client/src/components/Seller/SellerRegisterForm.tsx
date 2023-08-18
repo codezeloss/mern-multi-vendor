@@ -3,11 +3,10 @@ import { number, object, string } from "yup";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import FormAvatarInput from "../FormAvatarInput.tsx";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Spinner from "../Spinner.tsx";
 import { createNewShop } from "../../features/seller/sellerSlice.ts";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
 
 // !! Interface
 interface ValuesProps {
@@ -33,7 +32,6 @@ let registerSchema = object({
 
 function SellerRegisterForm() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // ** RTK - Seller state
   const sellerState = useSelector((state: any) => state.seller);
@@ -54,19 +52,16 @@ function SellerRegisterForm() {
     onSubmit: (values: ValuesProps) => {
       // @ts-ignore
       dispatch(createNewShop(values));
+
+      // ** Toast Notification && Redirect the user
+      if (isSuccess) {
+        toast.success("Shop created successfully!", {});
+        formik.resetForm();
+      } else if (isError) {
+        toast.error("Shop already exists", {});
+      }
     },
   });
-
-  useEffect(() => {
-    // ** Toast Notification && Redirect the user
-    if (isSuccess) {
-      toast.success("Shop created successfully!", {});
-      navigate("/seller/login");
-      formik.resetForm();
-    } else if (isError) {
-      toast.error("Shop already exists", {});
-    }
-  }, [isSuccess]);
 
   return (
     <>
