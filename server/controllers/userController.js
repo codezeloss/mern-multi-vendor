@@ -5,7 +5,7 @@ const path = require("path");
 const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/sendMail");
 const asyncErrorsMiddleware = require("../middlewares/asyncErrorsMiddleware");
-const sendToken = require("../utils/jwtToken");
+const userSendResponse = require("../utils/userSendResponse");
 
 // !! Activation Token
 const createActivationToken = (user) => {
@@ -20,7 +20,6 @@ const createUser = asyncHandler(async (req, res, next) => {
 
   // Check if the user already exists
   const userEmail = await User.findOne({ email });
-
   if (!userEmail) {
     // Create the new user
     const user = { name, email, password, avatar };
@@ -50,21 +49,24 @@ const createUser = asyncHandler(async (req, res, next) => {
 const activateUser = asyncHandler(async (req, res, next) => {
   try {
     const { activationToken } = req.body;
+
+    // Check if the user with the same email already exists
     const newUser = jwt.verify(activationToken, process.env.JWT_SECRET_KEY);
     const { name, email, password, avatar } = newUser;
-
     if (!newUser) {
       return next(new ErrorHandler("Invalid token", 400));
     }
 
+    //  Verify the activation Token
     let userEmail = await User.findOne({ email });
     if (userEmail) {
       return next(new ErrorHandler("User already exists", 400));
     }
 
+    // Create new User
     const user = await User.create({ name, email, password, avatar });
     if (user) {
-      sendToken(user, 201, res);
+      userSendResponse(user, 201, res);
     }
   } catch (e) {
     return next(new ErrorHandler(e.message, 500));
@@ -81,17 +83,17 @@ const loginUser = asyncHandler(async (req, res, next) => {
     // Check if the user exists
     const user = await User.findOne({ email }).select("+password");
     if (!user) {
-      return next(new ErrorHandler("User doesn't exists.", 400));
+      return next(new ErrorHandler("User doesn't exists!", 400));
     }
 
     // Check if the password is correct
     const isPasswordValid = user.comparePassword(password, user.password);
     if (!isPasswordValid) {
-      return next(new ErrorHandler("Your password is not correct!", 400));
+      return next(new ErrorHandler("The password is not correct!", 400));
     }
 
     // if the password is valid
-    sendToken(user, 201, res);
+    userSendResponse(user, 201, res);
   } catch (e) {
     return next(new ErrorHandler(e.message, 500));
   }
@@ -123,7 +125,7 @@ const getUser = asyncHandler(async (req, res, next) => {
 // !! @access Private
 const logoutUser = asyncHandler(async (req, res, next) => {
   try {
-    res.cookie("token", null, {
+    res.cookie("userToken", null, {
       expires: new Date(Date.now()),
       httpOnly: true,
     });

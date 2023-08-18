@@ -3,9 +3,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoginPage from "./pages/LoginPage.tsx";
 import SignUpPage from "./pages/SignUpPage.tsx";
-import ActivationPage from "./pages/ActivationPage.tsx";
+import UserActivationPage from "./pages/UserActivationPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "./features/user/userSlice.ts";
 import { useEffect } from "react";
 import Layout from "./components/Layout/Layout.tsx";
@@ -18,10 +18,16 @@ import CheckoutPage from "./pages/CheckoutPage.tsx";
 import ProfilePage from "./pages/ProfilePage.tsx";
 import SellerRegisterPage from "./pages/SellerRegisterPage.tsx";
 import SellerLoginPage from "./pages/SellerLoginPage.tsx";
+import ProtectedRoute from "./routing/ProtectedRoute.tsx";
+import SellerActivationPage from "./pages/SellerActivationPage.tsx";
 
 function App() {
   const dispatch = useDispatch();
 
+  // ** RTK - User state
+  const { isAuthenticated } = useSelector((state: any) => state.user);
+
+  // ** Get the User
   useEffect(() => {
     // @ts-ignore
     dispatch(getUser());
@@ -42,7 +48,14 @@ function App() {
           <Route path={"/checkout/shipping"} element={<CheckoutPage />} />
           <Route path={"/checkout/payment"} element={<CheckoutPage />} />
           <Route path={"/checkout/success"} element={<CheckoutPage />} />
-          <Route path={"/profile"} element={<ProfilePage />} />
+          <Route
+            path={"/profile"}
+            element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
           <Route path={"/profile/orders"} element={<ProfilePage />} />
           <Route path={"/profile/refunds"} element={<ProfilePage />} />
           <Route path={"/profile/inbox"} element={<ProfilePage />} />
@@ -51,7 +64,11 @@ function App() {
           <Route path={"/profile/address"} element={<ProfilePage />} />
           <Route path={"/profile/logout"} element={<ProfilePage />} />
         </Route>
-        <Route path={"/activation/:url"} element={<ActivationPage />} />
+        <Route path={"/activation/:url"} element={<UserActivationPage />} />
+        <Route
+          path={"/seller/activation/:url"}
+          element={<SellerActivationPage />}
+        />
         <Route path={"/seller/register"} element={<SellerRegisterPage />} />
         <Route path={"/seller/login"} element={<SellerLoginPage />} />
       </Routes>

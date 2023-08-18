@@ -3,14 +3,14 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
-const UserSchema = new Schema({
-  name: {
+const ShopSchema = new Schema({
+  shopName: {
     type: String,
-    required: [true, "Please enter your name!"],
+    required: [true, "Please enter your Shop name!"],
   },
   email: {
     type: String,
-    required: [true, "Please enter your email address!"],
+    required: [true, "Please enter your shop email address!"],
   },
   password: {
     type: String,
@@ -18,37 +18,27 @@ const UserSchema = new Schema({
     minLength: [6, "Password should be greater than 6 characters"],
     select: false,
   },
+  description: {
+    type: String,
+  },
   phoneNumber: {
     type: Number,
+    required: true,
   },
-  addresses: [
-    {
-      country: {
-        type: String,
-      },
-      city: {
-        type: String,
-      },
-      address1: {
-        type: String,
-      },
-      address2: {
-        type: String,
-      },
-      zipCode: {
-        type: Number,
-      },
-      addressType: {
-        type: String,
-      },
-    },
-  ],
+  address: {
+    type: String,
+    required: true,
+  },
   role: {
     type: String,
-    default: "user",
+    default: "seller",
   },
   avatar: {
     type: String,
+    required: true,
+  },
+  zipCode: {
+    type: Number,
     required: true,
   },
   createdAt: {
@@ -60,7 +50,7 @@ const UserSchema = new Schema({
 });
 
 // !! hash password
-UserSchema.pre("save", async function (next) {
+ShopSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
   }
@@ -69,12 +59,12 @@ UserSchema.pre("save", async function (next) {
 });
 
 // !! Compare passwords
-UserSchema.methods.comparePassword = async function (enteredPassword) {
+ShopSchema.methods.comparePassword = async function (enteredPassword) {
   return bcrypt.compareSync(enteredPassword, this.password);
 };
 
 // !! Generate Password Reset Token
-UserSchema.methods.createPasswordResetToken = async function () {
+ShopSchema.methods.createPasswordResetToken = async function () {
   const resetToken = crypto.randomBytes(32).toString("hex");
   this.resetPasswordToken = crypto
     .createHash("sha256")
@@ -85,30 +75,12 @@ UserSchema.methods.createPasswordResetToken = async function () {
 };
 
 // !! JWT token
-UserSchema.methods.getJwtToken = function () {
+ShopSchema.methods.getJwtToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
     expiresIn: process.env.JWT_EXPIRES,
   });
 };
 
-const UserModel = model("User", UserSchema);
+const ShopModel = model("Shop", ShopSchema);
 
-module.exports = UserModel;
-
-{
-  /*public_id: {
-    type: String,
-        required
-  :
-    true,
-  }
-,
-  url: {
-    type: String,
-        required
-  :
-    true,
-  }
-,
-*/
-}
+module.exports = ShopModel;

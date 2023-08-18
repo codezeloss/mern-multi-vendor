@@ -1,10 +1,13 @@
 import FormCustomInput from "../FormCustomInput.tsx";
-import { object, string } from "yup";
+import { number, object, string } from "yup";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FormAvatarInput from "../FormAvatarInput.tsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../Spinner.tsx";
+import { createNewShop } from "../../features/seller/sellerSlice.ts";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 // !! Interface
 interface ValuesProps {
@@ -22,16 +25,19 @@ let registerSchema = object({
   avatar: string(),
   shopName: string().required("Shop Name is required"),
   email: string().email("Email should be valid").required("Email is required"),
-  phoneNumber: string().required("Phone Number is required"),
+  phoneNumber: number().required("Phone Number is required"),
   address: string().required("Address is required"),
-  zipCode: string().required("Zip Code is required"),
+  zipCode: number().required("Zip Code is required"),
   password: string().required("Password is required"),
 });
 
 function SellerRegisterForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // ** RTK
+  // ** RTK - Seller state
+  const sellerState = useSelector((state: any) => state.seller);
+  const { isSuccess, isError, isLoading } = sellerState;
 
   // ** Formik
   const formik = useFormik({
@@ -45,8 +51,22 @@ function SellerRegisterForm() {
       password: "",
     },
     validationSchema: registerSchema,
-    onSubmit: (values: ValuesProps) => {},
+    onSubmit: (values: ValuesProps) => {
+      // @ts-ignore
+      dispatch(createNewShop(values));
+    },
   });
+
+  useEffect(() => {
+    // ** Toast Notification && Redirect the user
+    if (isSuccess) {
+      toast.success("Shop created successfully!", {});
+      navigate("/seller/login");
+      formik.resetForm();
+    } else if (isError) {
+      toast.error("Shop already exists", {});
+    }
+  }, [isSuccess]);
 
   return (
     <>
@@ -55,10 +75,10 @@ function SellerRegisterForm() {
           <h1 className="form-title">Register as a seller</h1>
 
           <form
-            className="bg-white px-8 pt-4 pb-11 shadow-md w-[600px] h-auto rounded-md"
+            className="bg-white px-8 pt-4 pb-11 shadow-md w-[530px] h-auto rounded-md"
             onSubmit={formik.handleSubmit}
           >
-            <div className="flex flex-col items-center gap-2 mb-6 justify-center">
+            <div className="flex flex-col items-center gap-2 mb-1 justify-center">
               <FormAvatarInput
                 name={"seller-avatar"}
                 id={"seller-file-input"}
@@ -112,7 +132,7 @@ function SellerRegisterForm() {
             <div className="flex flex-col mb-4">
               <FormCustomInput
                 label={"Phone Number"}
-                type={"text"}
+                type={"tel"}
                 name={"seller-phone-number"}
                 id={"seller-phone-number"}
                 onBlurHandler={formik.handleBlur("phoneNumber")}
@@ -150,7 +170,7 @@ function SellerRegisterForm() {
             <div className="flex flex-col mb-4">
               <FormCustomInput
                 label={"Zip Code"}
-                type={"text"}
+                type={"number"}
                 name={"seller-zipCode"}
                 id={"seller-zipCode"}
                 onBlurHandler={formik.handleBlur("zipCode")}
@@ -197,7 +217,13 @@ function SellerRegisterForm() {
             </div>
           </form>
 
-          {false && <Spinner />}
+          {false && (
+            <p className="font-medium text-lg">
+              Check your inbox to activate your account
+            </p>
+          )}
+
+          {isLoading && <Spinner />}
         </div>
       </div>
     </>

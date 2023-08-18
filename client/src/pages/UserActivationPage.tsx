@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { activateUserAccount } from "../features/user/userSlice.ts";
 
-function ActivationPage() {
+function UserActivationPage() {
   const { url } = useParams();
   const dispatch = useDispatch();
 
@@ -21,16 +21,20 @@ function ActivationPage() {
   }, [url]);
 
   return (
-    <div className={"h-screen flex items-center justify-center font-poppins"}>
-      {isError ? (
-        <h1 className="text-xl font-bold">Your Token is expired! 💀</h1>
-      ) : (
-        <h1 className="text-xl font-bold">
-          Your account has been created successfully ✅
-        </h1>
-      )}
-    </div>
+    <>
+      <main
+        className={"h-screen flex items-center justify-center font-poppins"}
+      >
+        {isError ? (
+          <h1 className="text-xl font-bold">Your Token is expired! 💀</h1>
+        ) : (
+          <h1 className="text-xl font-bold">
+            Your account has been created successfully ✅
+          </h1>
+        )}
+      </main>
+    </>
   );
 }
 
-export default ActivationPage;
+export default UserActivationPage;
