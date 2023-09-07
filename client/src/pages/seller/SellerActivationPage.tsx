@@ -7,7 +7,7 @@ function SellerActivationPage() {
   const { url } = useParams();
   const dispatch = useDispatch();
 
-  // ** RTK - Seller State
+  // ** RTK - seller State
   const sellerState = useSelector((state: any) => state.seller);
   const { isError } = sellerState;
 

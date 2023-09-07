@@ -1,12 +1,13 @@
-import { useSelector } from "react-redux";
+import ShopInfosCard from "../../components/seller/ShopHomePage/ShopInfosCard.tsx";
+import ShopAdditionalDetails from "../../components/seller/ShopHomePage/ShopAdditionalDetails.tsx";
 
 function ShopHomePage() {
-  // ** RTK - Seller state
-  const sellerState = useSelector((state: any) => state.seller);
-  const { isSuccess, isError, isLoading, isAuthenticated, seller } =
-    sellerState;
-
-  return <main>ShopHomePage</main>;
+  return (
+    <main className="w-full h-full flex gap-8 py-11 px-4 bg-gray-100">
+      <ShopInfosCard />
+      <ShopAdditionalDetails />
+    </main>
+  );
 }
 
 export default ShopHomePage;

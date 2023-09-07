@@ -33,7 +33,7 @@ let registerSchema = object({
 function SellerRegisterForm() {
   const dispatch = useDispatch();
 
-  // ** RTK - Seller state
+  // ** RTK - seller state
   const sellerState = useSelector((state: any) => state.seller);
   const { isSuccess, isError, isLoading } = sellerState;
 

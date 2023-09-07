@@ -5,7 +5,6 @@ import SellerInfo from "./SellerInfo.tsx";
 
 function ProductAccordions() {
   const [active, setActive] = useState(1);
-  console.log(active);
 
   return (
     <>

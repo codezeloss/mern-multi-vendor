@@ -7,7 +7,8 @@ const bodyParser = require("body-parser");
 const colors = require("colors");
 const ErrorHandler = require("./middlewares/errorMiddleware");
 const userRouter = require("./routes/userRoutes");
-const shopRouter = require("./routes/shopRoutes");
+const sellerRouter = require("./routes/sellerRoutes");
+const productRouter = require("./routes/productRoutes");
 
 // !! MIDDLEWARES
 app.use(
@@ -24,7 +25,8 @@ app.use(morgan("dev"));
 
 // !! ROUTES
 app.use("/api/v1/user", userRouter);
-app.use("/api/v1/seller", shopRouter);
+app.use("/api/v1/seller", sellerRouter);
+app.use("/api/v1/seller/product", productRouter);
 
 // !! ERROR HANDLERS
 app.use(ErrorHandler);

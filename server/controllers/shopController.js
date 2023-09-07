@@ -58,7 +58,7 @@ const createShop = asyncHandler(async (req, res, next) => {
   }
 });
 
-// !! @desc   Activate Seller Shop
+// !! @desc   Activate seller Shop
 // !! @route  POST /activate-shop
 // !! @access Private
 const activateShop = asyncHandler(async (req, res, next) => {
@@ -76,7 +76,7 @@ const activateShop = asyncHandler(async (req, res, next) => {
     // Check if the seller with the same email already exists
     let sellerEmail = await Shop.findOne({ email });
     if (sellerEmail) {
-      return next(new ErrorHandler("Seller already exists", 400));
+      return next(new ErrorHandler("seller already exists", 400));
     }
 
     // Create new Shop

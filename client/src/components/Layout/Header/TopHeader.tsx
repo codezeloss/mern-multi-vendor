@@ -59,7 +59,7 @@ function TopHeader() {
         </div>
       </div>
 
-      <Link to={"/seller/register"}>
+      <Link to={"/seller/login"}>
         <div className="text-sm py-2.5 px-6 text-white bg-black font-medium rounded-md flex items-center gap-2">
           <p>Join as a Seller</p>
           <BsArrowRight />

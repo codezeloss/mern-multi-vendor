@@ -3,8 +3,15 @@ import ProductDetails from "../../components/ProductDetailsPage/ProductDetails.t
 import iphone from "../../assets/iphone.jpg";
 import ProductAccordions from "../../components/ProductDetailsPage/ProductAccordions.tsx";
 import FeaturedProducts from "../../components/HomePage/FeaturedProducts.tsx";
+import { useLocation } from "react-router-dom";
 
 function ProductDetailsPage() {
+  const location = useLocation();
+
+  // ** Get current product ID
+  const productId = location.pathname.split("/")[2];
+  console.log(productId);
+
   return (
     <>
       <main className={"bg-white w-full"}>

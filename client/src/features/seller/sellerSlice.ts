@@ -61,7 +61,7 @@ export const loginSellerShop = createAsyncThunk(
   }
 );
 
-// !! Get Seller Shop
+// !! Get seller Shop
 export const getSeller = createAsyncThunk(
   "seller/get-seller",
   async (thunkAPI) => {
@@ -143,7 +143,7 @@ export const sellerSlice = createSlice({
         // @ts-ignore
         state.message = action.error;
       })
-      // ** Get Seller Shop
+      // ** Get seller Shop
       .addCase(getSeller.pending, (state) => {
         state.isLoading = true;
       })

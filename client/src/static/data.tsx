@@ -192,70 +192,70 @@ export const categoriesData = [
   {
     id: 1,
     title: "Computers & Laptops",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
   },
   {
     id: 2,
     title: "cosmetics",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://media.istockphoto.com/id/184615483/photo/cosmetics-on-white-background.jpg?s=612x612&w=0&k=20&c=B5jwzhVC1YMXmT1W8TeG3EZjTo0hNsY7_J1dxTep7Xg=",
   },
   {
     id: 3,
     title: "Accessories",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://st4.depositphotos.com/20838724/23309/v/450/depositphotos_233090706-stock-illustration-engagement-wedding-rings-line-icon.jpg",
   },
   {
     id: 4,
     title: "Clothes",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://media.istockphoto.com/id/874045548/vector/shirt-icon.jpg?s=612x612&w=0&k=20&c=ZJCxsCczemu1XhYRMDCByrYdwotBESuFdC5tkGf1a6g=",
   },
   {
     id: 5,
     title: "Shoes",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://i.pinimg.com/originals/dc/53/50/dc5350243970437d9fff2c8db3a9975b.jpg",
   },
   {
     id: 6,
     title: "Gifts",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://static.vecteezy.com/system/resources/previews/002/811/028/original/gift-box-christmas-present-icon-free-vector.jpg",
   },
   {
     id: 7,
     title: "Pet Care",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://t4.ftcdn.net/jpg/04/17/87/67/360_F_417876741_pofg19rDWTv6ZmgQ8qTOgVMJ0H3N2uPh.jpg",
   },
   {
     id: 8,
     title: "Mobile & Tablets",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://st-troy.mncdn.com/mnresize/1500/1500/Content/media/ProductImg/original/mpwp3tua-apple-iphone-14-256gb-mavi-mpwp3tua-637986832343472449.jpg",
   },
   {
     id: 9,
     title: "Gaming",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://img.freepik.com/vecteurs-premium/icone-manette-jeu-pour-jouer-jeu-video-arcade-pour-joueur-design-personnalise_185390-205.jpg",
   },
   {
     id: 10,
     title: "Others",
-    subTitle: "",
+    subTitle: "subtitle",
     image_Url:
       "https://cdn.vectorstock.com/i/preview-1x/96/53/three-horizontal-dots-menu-black-glyph-ui-icon-vector-43339653.jpg",
   },
@@ -317,7 +317,8 @@ export const productData = [
       },
       ratings: 4.2,
     },
-    discount_price: 1099,
+    price: 1000,
+    discount_price: 1200,
     rating: 5,
     total_sell: 80,
     stock: 10,
@@ -543,7 +544,8 @@ export const productData = [
       },
       ratings: 4.2,
     },
-    discount_price: 1099,
+    price: 1099,
+    discount_price: 1299,
     rating: 5,
     total_sell: 20,
     stock: 10,

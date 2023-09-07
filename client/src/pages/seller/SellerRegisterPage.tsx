@@ -1,4 +1,4 @@
-import SellerRegisterForm from "../../components/Seller/SellerRegisterForm.tsx";
+import SellerRegisterForm from "../../components/seller/SellerRegisterForm.tsx";
 
 function SellerRegisterPage() {
   return (

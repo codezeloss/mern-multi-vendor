@@ -1,13 +1,19 @@
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+
+import { getUser } from "./features/user/userSlice.ts";
+import { getSeller } from "./features/seller/sellerSlice.ts";
+
+import UserProtectedRoute from "./routes/UserProtectedRoute.tsx";
+import SellerProtectedRoutes from "./routes/SellerProtectedRoutes.tsx";
+
 import LoginPage from "./pages/user/LoginPage.tsx";
 import SignUpPage from "./pages/user/SignUpPage.tsx";
 import UserActivationPage from "./pages/user/UserActivationPage.tsx";
 import HomePage from "./pages/user/HomePage.tsx";
-import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "./features/user/userSlice.ts";
-import { useEffect } from "react";
 import Layout from "./components/Layout/Layout.tsx";
 import ProductDetailsPage from "./pages/user/ProductDetailsPage.tsx";
 import ProductsPage from "./pages/user/ProductsPage.tsx";
@@ -18,28 +24,29 @@ import CheckoutPage from "./pages/user/CheckoutPage.tsx";
 import ProfilePage from "./pages/user/ProfilePage.tsx";
 import SellerRegisterPage from "./pages/seller/SellerRegisterPage.tsx";
 import SellerLoginPage from "./pages/seller/SellerLoginPage.tsx";
-import UserProtectedRoute from "./routing/UserProtectedRoute.tsx";
 import SellerActivationPage from "./pages/seller/SellerActivationPage.tsx";
-import { getSeller } from "./features/seller/sellerSlice.ts";
 import ShopHomePage from "./pages/seller/ShopHomePage.tsx";
-import SellerProtectedRoutes from "./routing/SellerProtectedRoutes.tsx";
+import DashboardPage from "./pages/seller/dashboard/DashboardPage.tsx";
+
+import DashboardLayout from "./components/seller/Dashboard/DashboardLayout.tsx";
+import AllOrdersPage from "./pages/seller/dashboard/AllOrdersPage.tsx";
+import AllEventsPage from "./pages/seller/dashboard/AllEventsPage.tsx";
+import AllProductsPage from "./pages/seller/dashboard/AllProductsPage.tsx";
+import NewEventPage from "./pages/seller/dashboard/NewEventPage.tsx";
+import ShopInboxPage from "./pages/seller/dashboard/ShopInboxPage.tsx";
+import WithdrawPage from "./pages/seller/dashboard/WithdrawPage.tsx";
+import DiscountsPage from "./pages/seller/dashboard/DiscountsPage.tsx";
+import RefundsPage from "./pages/seller/dashboard/RefundsPage.tsx";
+import SettingsPage from "./pages/seller/dashboard/SettingsPage.tsx";
+import NewProductPage from "./pages/seller/dashboard/NewProductPage.tsx";
 
 function App() {
   const dispatch = useDispatch();
-
-  // ** RTK - User state
-  const { isAuthenticated: isUser } = useSelector((state: any) => state.user);
-
-  // ** RTK - Seller state
-  const { isAuthenticated: isSeller } = useSelector(
-    (state: any) => state.seller
-  );
 
   // ** Get the User
   useEffect(() => {
     // @ts-ignore
     dispatch(getUser());
-
     // @ts-ignore
     dispatch(getSeller());
   }, []);
@@ -63,7 +70,7 @@ function App() {
           <Route
             path={"/profile"}
             element={
-              <UserProtectedRoute isAuthenticated={isUser}>
+              <UserProtectedRoute>
                 <ProfilePage />
               </UserProtectedRoute>
             }
@@ -88,12 +95,58 @@ function App() {
         <Route
           path={"/seller/shop/:id"}
           element={
-            <SellerProtectedRoutes isSeller={isSeller}>
+            <SellerProtectedRoutes>
               <ShopHomePage />
             </SellerProtectedRoutes>
           }
         />
+
+        <Route
+          element={
+            <SellerProtectedRoutes>
+              <DashboardLayout />
+            </SellerProtectedRoutes>
+          }
+        >
+          <Route path={"/seller/dashboard"} element={<DashboardPage />} />
+          <Route
+            path={"/seller/dashboard/orders"}
+            element={<AllOrdersPage />}
+          />
+          <Route
+            path={"/seller/dashboard/products"}
+            element={<AllProductsPage />}
+          />
+          <Route
+            path={"/seller/dashboard/new-product"}
+            element={<NewProductPage />}
+          />
+          <Route
+            path={"/seller/dashboard/events"}
+            element={<AllEventsPage />}
+          />
+          <Route
+            path={"/seller/dashboard/new-event"}
+            element={<NewEventPage />}
+          />
+          <Route path={"/seller/dashboard/inbox"} element={<ShopInboxPage />} />
+          <Route
+            path={"/seller/dashboard/withdraw"}
+            element={<WithdrawPage />}
+          />
+          <Route
+            path={"/seller/dashboard/discounts"}
+            element={<DiscountsPage />}
+          />
+          <Route path={"/seller/dashboard/refunds"} element={<RefundsPage />} />
+          <Route
+            path={"/seller/dashboard/settings"}
+            element={<SettingsPage />}
+          />
+        </Route>
       </Routes>
+
+      {/* !! Toast Notification */}
       <ToastContainer
         position="top-center"
         autoClose={2000}

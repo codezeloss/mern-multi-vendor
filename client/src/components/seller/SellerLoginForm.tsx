@@ -26,7 +26,7 @@ function SellerLoginForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-  // ** RTK - Seller state
+  // ** RTK - seller state
   const sellerState = useSelector((state: any) => state.seller);
   const { isSuccess, isError, isLoading, isAuthenticated, seller } =
     sellerState;
@@ -48,7 +48,7 @@ function SellerLoginForm() {
   useEffect(() => {
     if (isSuccess && isAuthenticated && seller !== null) {
       toast.success("Login successfully!", {});
-      navigate(`/seller/shop/${seller._id}`);
+      navigate(`/seller/dashboard`);
       formik.resetForm();
     } else if (isError) {
       toast.error("Please enter your correct information", {});

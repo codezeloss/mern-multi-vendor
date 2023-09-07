@@ -5,7 +5,7 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/UserModel");
 const Shop = require("../models/ShopModel");
 
-// **
+// !! Check if the USER is Authenticated
 const isUserAuthenticated = asyncHandler(async (req, res, next) => {
   const { userToken: token } = req.cookies;
 
@@ -18,7 +18,7 @@ const isUserAuthenticated = asyncHandler(async (req, res, next) => {
   next();
 });
 
-// **
+// !! Check if the SELLER is Authenticated
 const isSellerAuthenticated = asyncHandler(async (req, res, next) => {
   const { sellerToken: token } = req.cookies;
 
@@ -31,6 +31,7 @@ const isSellerAuthenticated = asyncHandler(async (req, res, next) => {
   next();
 });
 
+// !! Check if the ADMIN is Authenticated
 const isAdmin = asyncHandler(async (req, res, next) => {
   const { email } = req.user;
   const adminUser = await User.findOne({ email });
