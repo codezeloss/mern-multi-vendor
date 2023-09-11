@@ -3,18 +3,17 @@ import { base_url } from "../../../utils/base_url.ts";
 import { config } from "../../../utils/axios_config.ts";
 
 const createCoupon = async (couponData: any) => {
-  const configP = { headers: { "Content-Type": "multipart/form-data" } };
   const response = await axios.post(
     `${base_url}seller/coupon/create-coupon`,
     couponData,
-    configP
+    config
   );
   return response.data;
 };
 
 const getCoupons = async (id: string) => {
   const response = await axios.get(
-    `${base_url}seller/coupon/get-coupons/${id}`
+    `${base_url}seller/coupon/all-coupons/${id}`
   );
   return response.data;
 };

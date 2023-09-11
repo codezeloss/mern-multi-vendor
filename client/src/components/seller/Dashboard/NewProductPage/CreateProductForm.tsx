@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createNewProduct } from "../../../../features/seller/product/productSlice.ts";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { categoriesData } from "../../../../static/data.tsx";
 
 export default function CreateProductForm() {
   const dispatch = useDispatch();
@@ -53,7 +54,6 @@ export default function CreateProductForm() {
     images.forEach((image) => {
       newForm.set("images", image);
     });
-    console.log(newForm);
 
     // @ts-ignore
     dispatch(createNewProduct(newForm));
@@ -131,10 +131,15 @@ export default function CreateProductForm() {
             }
             value={category}
           >
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+            <option value="Choose you product category">
+              Choose you product category
+            </option>
+            {categoriesData &&
+              categoriesData.map((i) => (
+                <option value={i.title} key={i.title}>
+                  {i.title}
+                </option>
+              ))}
           </select>
         </div>
 

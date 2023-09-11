@@ -1,4 +1,4 @@
-// import iphone from "../assets/iphone.jpg";
+import noImg from "../assets/no-image.jpg";
 import Rating from "@mui/material/Rating";
 import { MdAddShoppingCart } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
@@ -31,12 +31,12 @@ function Product({
         <Link className={"w-full"} to={`/product/${id}`}>
           <img
             className="w-full text-xs object-contain h-44 mb-4"
-            src={image_Url}
+            src={image_Url ? image_Url : noImg}
             alt={name?.split(" ")[0] + " Product image"}
           />
         </Link>
 
-        <div className="absolute flex flex-col items-center text-lg gap-2 right-0 top-0 bg-white pl-1">
+        <div className="absolute flex flex-col items-center text-lg gap-2 right-0 top-0 bg-white pl-2 pb-2">
           <button type={"button"} className={"hover:text-red-500"}>
             <FaRegHeart />
           </button>
@@ -47,18 +47,22 @@ function Product({
       </div>
 
       <p className={"mb-2 text-xs text-blue-400"}>{shopName}</p>
-      <Link to={`/product/${id}`}>
-        <h3 className={"mb-2 text-sm font-semibold hover:underline"}>
-          {name?.substring(0, 27) + "..."}
-        </h3>
-      </Link>
-      <Rating
-        className={"mb-3 text-sm"}
-        name="read-only"
-        value={rating}
-        readOnly
-        size={"small"}
-      />
+
+      <div className="flex flex-col">
+        <Link to={`/product/${id}`}>
+          <h3 className={"mb-2 text-sm font-semibold hover:underline"}>
+            {name?.substring(0, 27) + "..."}
+          </h3>
+        </Link>
+
+        <Rating
+          className={"mb-3 text-sm"}
+          name="read-only"
+          value={rating}
+          readOnly
+          size={"small"}
+        />
+      </div>
 
       <div className={"flex items-center justify-between"}>
         <div className={"flex items-start gap-2"}>

@@ -35,7 +35,7 @@ export default function ShopInfosCard() {
 
   return (
     <>
-      <div className="bg-white rounded-md shadow-md min-w-[340px] h-full px-4 pb-4 pt-8 flex flex-col gap-11">
+      <div className="bg-white rounded-md shadow-md min-w-[340px] h-fit px-4 pb-4 pt-8 flex flex-col gap-11">
         <div>
           <img
             className="w-48 h-48 rounded-full mx-auto border-2 border-black bg-gray-200"

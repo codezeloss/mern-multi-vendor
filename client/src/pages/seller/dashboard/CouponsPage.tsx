@@ -1,25 +1,41 @@
 import CreateCouponForm from "../../../components/seller/Dashboard/CouponsPage/CreateCouponForm.tsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CouponsTable from "../../../components/seller/Dashboard/CouponsPage/CouponsTable.tsx";
 import { useDispatch, useSelector } from "react-redux";
+import { getAllProducts } from "../../../features/seller/product/productSlice.ts";
+import { getAllCoupons } from "../../../features/seller/coupon/couponSlice.ts";
 
 export default function CouponsPage() {
-  const [showCouponForm, setShowCouponForm] = useState(false);
   const dispatch = useDispatch();
+  const [showCouponForm, setShowCouponForm] = useState(false);
 
   // ** RTK - Seller state
   const sellerState = useSelector((state: any) => state.seller);
   const { seller } = sellerState;
 
   // ** RTK - Products state
+  const productState = useSelector((state: any) => state.product);
+  const { products } = productState;
+
+  // ** RTK - Products state
   const couponState = useSelector((state: any) => state.coupon);
   const { isLoading: couponsLoading, coupons } = couponState;
+
+  useEffect(() => {
+    // @ts-ignore
+    dispatch(getAllCoupons(seller?._id));
+    // @ts-ignore
+    dispatch(getAllProducts(seller?._id));
+  }, []);
 
   return (
     <>
       {showCouponForm && (
         <div className="py-6 mb-44 h-full">
-          <CreateCouponForm setShowCouponForm={setShowCouponForm} />
+          <CreateCouponForm
+            products={products}
+            setShowCouponForm={setShowCouponForm}
+          />
         </div>
       )}
 
@@ -36,9 +52,11 @@ export default function CouponsPage() {
             </button>
           </div>
 
-          {coupons && coupons.length > 0 && couponsLoading === false ? (
+          {coupons && coupons.length > 0 && couponsLoading === false && (
             <CouponsTable data={coupons} />
-          ) : (
+          )}
+
+          {couponsLoading === true && (
             <div
               className={
                 "w-24 h-24 rounded-full animate-spin mx-auto mt-8 border-2 border-solid border-blue-500 border-t-transparent my-6"
@@ -46,7 +64,7 @@ export default function CouponsPage() {
             />
           )}
 
-          {coupons && coupons.length === 0 && (
+          {coupons.length === 0 && couponsLoading === false && (
             <h1 className="font-bold text-xl text-center mt-11">
               No Coupons Found!
             </h1>

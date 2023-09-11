@@ -1,7 +1,25 @@
+// import { productData } from "../../static/data.tsx";
 import Product from "../../components/Product.tsx";
-import { productData } from "../../static/data.tsx";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllProducts } from "../../features/seller/product/productSlice.ts";
 
 function ProductsPage() {
+  const dispatch = useDispatch();
+
+  // ** RTK - Seller State
+  const sellerState = useSelector((state: any) => state.seller);
+  const { seller } = sellerState;
+
+  // ** RTK - Products State
+  const productState = useSelector((state: any) => state.product);
+  const { products } = productState;
+
+  useEffect(() => {
+    // @ts-ignore
+    dispatch(getAllProducts(seller?._id));
+  }, []);
+
   return (
     <>
       <main
@@ -9,19 +27,20 @@ function ProductsPage() {
           "grid grid-cols-5 gap-2 items-center px-6 py-8 max-w-[1500px] mx-auto"
         }
       >
-        {productData.map((product) => (
-          <Product
-            key={product.id}
-            id={product.id}
-            name={product?.name}
-            image_Url={product.image_Url[0].url}
-            shopName={product.shop.name}
-            price={product.price}
-            discount_price={product.discount_price}
-            rating={product.rating}
-            total_sell={product.total_sell}
-          />
-        ))}
+        {products &&
+          products.map((product: any) => (
+            <Product
+              key={product?._id}
+              id={product?._id}
+              name={product?.name}
+              image_Url={product?.images[0]}
+              shopName={product?.shop.shopName}
+              price={product?.originalPrice}
+              discount_price={product?.discountPrice}
+              rating={5}
+              total_sell={product?.sold_out}
+            />
+          ))}
       </main>
     </>
   );

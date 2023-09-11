@@ -19,7 +19,7 @@ export default function CreateEventForm() {
   const [images, setImages] = useState([]);
   const [startDate, setStartDate] = useState<string | any>("");
   const [finishDate, setFinishDate] = useState("");
-  const [status, setStatus] = useState("null");
+  const [status, setStatus] = useState("");
 
   // ** RTK - Seller state
   const sellerState = useSelector((state: any) => state.seller);
@@ -52,7 +52,6 @@ export default function CreateEventForm() {
     target: { value: string | number | Date };
   }) => {
     e.preventDefault();
-
     const endDate = new Date(e.target.value).toISOString().slice(0, 10);
     setFinishDate(endDate);
   };
@@ -89,7 +88,6 @@ export default function CreateEventForm() {
     images.forEach((image) => {
       newForm.set("images", image);
     });
-    console.log(newForm);
 
     // @ts-ignore
     dispatch(createNewEvent(newForm));

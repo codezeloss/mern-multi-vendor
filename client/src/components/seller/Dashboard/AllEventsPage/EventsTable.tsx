@@ -10,7 +10,6 @@ export default function EventsTable({ data }: any) {
 
   // ** Handle Event delete
   const handleEventDelete = (id: string | number) => {
-    console.log(id);
     // @ts-ignore
     dispatch(deleteEvent(id));
   };
