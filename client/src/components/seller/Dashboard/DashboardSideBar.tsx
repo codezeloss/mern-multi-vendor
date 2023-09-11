@@ -8,7 +8,6 @@ import { BsBoxSeam } from "react-icons/bs";
 import { AiOutlineMessage } from "react-icons/ai";
 import { TbDiscount2 } from "react-icons/tb";
 import { RiRefund2Line } from "react-icons/ri";
-import Logo from "../../Logo.tsx";
 
 export default function DashboardSideBar() {
   const location = useLocation();
@@ -17,11 +16,7 @@ export default function DashboardSideBar() {
   const currentPath = location.pathname.split("/")[3];
 
   return (
-    <nav className="w-[340px] h-full bg-black text-white py-4 px-6 shadow-r-md flex flex-col gap-2">
-      <div className="mb-4">
-        <Logo />
-      </div>
-
+    <nav className="w-[290px] h-full bg-black/95 text-white py-4 px-8 shadow-r-md flex flex-col gap-2">
       <DashboardSideBarLink
         link={"/seller/dashboard/"}
         current={currentPath === ""}
@@ -71,10 +66,10 @@ export default function DashboardSideBar() {
         title={"Shop Inbox"}
       />
       <DashboardSideBarLink
-        link={"/seller/dashboard/discounts"}
-        current={currentPath === "discounts"}
+        link={"/seller/dashboard/coupons"}
+        current={currentPath === "coupons"}
         icon={<TbDiscount2 />}
-        title={"Discounts"}
+        title={"Coupons"}
       />
       <DashboardSideBarLink
         link={"/seller/dashboard/refunds"}

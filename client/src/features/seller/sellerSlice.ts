@@ -74,6 +74,19 @@ export const getSeller = createAsyncThunk(
   }
 );
 
+// !! Logout Seller - Shop
+export const logoutSeller = createAsyncThunk(
+  "seller/logout-seller",
+  async (thunkAPI) => {
+    try {
+      return await sellerService.logout();
+    } catch (e) {
+      // @ts-ignore
+      return thunkAPI.rejectWithValue(e);
+    }
+  }
+);
+
 export const sellerSlice = createSlice({
   name: "seller",
   initialState,
@@ -157,6 +170,24 @@ export const sellerSlice = createSlice({
         state.message = "success";
       })
       .addCase(getSeller.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        // @ts-ignore
+        state.message = action.error;
+      }) // ** Logout User
+      .addCase(logoutSeller.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(logoutSeller.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.seller = null;
+        state.isAuthenticated = false;
+        state.message = action.payload.message;
+      })
+      .addCase(logoutSeller.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;

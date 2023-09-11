@@ -147,7 +147,7 @@ const getSeller = asyncHandler(async (req, res, next) => {
 // !! @access Private
 const logoutSeller = asyncHandler(async (req, res, next) => {
   try {
-    res.cookie("user-token", null, {
+    res.cookie("sellerToken", null, {
       expires: new Date(Date.now()),
       httpOnly: true,
     });
@@ -165,4 +165,5 @@ module.exports = {
   activateShop,
   loginSellerShop,
   getSeller,
+  logoutSeller,
 };

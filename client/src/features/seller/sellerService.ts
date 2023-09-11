@@ -31,11 +31,17 @@ const seller = async () => {
   return response.data;
 };
 
+const logout = async () => {
+  const response = await axios.get(`${base_url}seller/logout`, config);
+  return response.data;
+};
+
 const sellerService = {
   createShop,
   activateShop,
   loginShop,
   seller,
+  logout,
 };
 
 export default sellerService;

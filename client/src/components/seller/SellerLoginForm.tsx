@@ -48,7 +48,7 @@ function SellerLoginForm() {
   useEffect(() => {
     if (isSuccess && isAuthenticated && seller !== null) {
       toast.success("Login successfully!", {});
-      navigate(`/seller/dashboard`);
+      navigate(`/seller/shop/${seller._id}`);
       formik.resetForm();
     } else if (isError) {
       toast.error("Please enter your correct information", {});

@@ -35,7 +35,7 @@ import AllProductsPage from "./pages/seller/dashboard/AllProductsPage.tsx";
 import NewEventPage from "./pages/seller/dashboard/NewEventPage.tsx";
 import ShopInboxPage from "./pages/seller/dashboard/ShopInboxPage.tsx";
 import WithdrawPage from "./pages/seller/dashboard/WithdrawPage.tsx";
-import DiscountsPage from "./pages/seller/dashboard/DiscountsPage.tsx";
+import CouponsPage from "./pages/seller/dashboard/CouponsPage.tsx";
 import RefundsPage from "./pages/seller/dashboard/RefundsPage.tsx";
 import SettingsPage from "./pages/seller/dashboard/SettingsPage.tsx";
 import NewProductPage from "./pages/seller/dashboard/NewProductPage.tsx";
@@ -134,10 +134,7 @@ function App() {
             path={"/seller/dashboard/withdraw"}
             element={<WithdrawPage />}
           />
-          <Route
-            path={"/seller/dashboard/discounts"}
-            element={<DiscountsPage />}
-          />
+          <Route path={"/seller/dashboard/coupons"} element={<CouponsPage />} />
           <Route path={"/seller/dashboard/refunds"} element={<RefundsPage />} />
           <Route
             path={"/seller/dashboard/settings"}

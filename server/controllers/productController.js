@@ -16,7 +16,8 @@ const createProduct = asyncHandler(async (req, res, next) => {
     if (shop) {
       // ** Get uploaded files
       const files = req.files;
-      const imageURLs = files.map((file) => `${file.fileName}`);
+      console.log(files);
+      const imageURLs = files.map((file) => `${file.filename}`);
 
       // ** Get Product Data from body
       const productData = req.body;
@@ -26,10 +27,7 @@ const createProduct = asyncHandler(async (req, res, next) => {
       // ** New Product
       const product = await Product.create(productData);
 
-      res.status(201).json({
-        success: true,
-        product,
-      });
+      if (product) res.status(201).json(product);
     } else {
       return next(new ErrorHandler("Shop Id is invalid!", 400));
     }
@@ -38,6 +36,42 @@ const createProduct = asyncHandler(async (req, res, next) => {
   }
 });
 
+// !! @desc   All Products
+// !! @route  GET /get-products/:id
+// !! @access Private
+const getAllProducts = asyncHandler(async (req, res, next) => {
+  try {
+    const shopId = req.params.id;
+
+    const products = await Product.find({ shopId });
+
+    res.status(201).json(products);
+  } catch (e) {
+    return next(new ErrorHandler(e, 400));
+  }
+});
+
+// !! @desc   Delete product
+// !! @route  DELETE /delete-product/:id
+// !! @access Private
+const deleteProduct = asyncHandler(async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const product = await Product.findByIdAndDelete(id);
+
+    if (!product) {
+      return next(new ErrorHandler("Product Not Found with this ID!", 400));
+    }
+
+    res.status(201).json(product._id);
+  } catch (e) {
+    return next(new ErrorHandler(e, 400));
+  }
+});
+
 module.exports = {
   createProduct,
+  getAllProducts,
+  deleteProduct,
 };

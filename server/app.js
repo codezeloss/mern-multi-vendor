@@ -6,9 +6,12 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const colors = require("colors");
 const ErrorHandler = require("./middlewares/errorMiddleware");
+
 const userRouter = require("./routes/userRoutes");
 const sellerRouter = require("./routes/sellerRoutes");
 const productRouter = require("./routes/productRoutes");
+const eventRouter = require("./routes/eventRoutes");
+const couponRouter = require("./routes/couponRoutes");
 
 // !! MIDDLEWARES
 app.use(
@@ -27,6 +30,8 @@ app.use(morgan("dev"));
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/seller", sellerRouter);
 app.use("/api/v1/seller/product", productRouter);
+app.use("/api/v1/seller/event", eventRouter);
+app.use("/api/v1/seller/coupon", couponRouter);
 
 // !! ERROR HANDLERS
 app.use(ErrorHandler);

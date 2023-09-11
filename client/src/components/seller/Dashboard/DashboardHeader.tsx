@@ -4,6 +4,7 @@ import { FiGift, FiShoppingBag } from "react-icons/fi";
 import { TbDiscount2 } from "react-icons/tb";
 import { RiDiscussLine } from "react-icons/ri";
 import { MdAttachMoney } from "react-icons/md";
+import Logo from "../../Logo.tsx";
 
 export default function DashboardHeader() {
   // ** RTK - seller state
@@ -12,7 +13,7 @@ export default function DashboardHeader() {
 
   return (
     <header className="w-full bg-black text-white py-4 px-6 flex items-center justify-between shadow-md">
-      <div></div>
+      <Logo />
 
       <div className="flex items-center gap-4">
         <Link to={"/seller/dashboard/messages"}>
